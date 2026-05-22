@@ -1,4 +1,69 @@
+/* ============================================
+   1. VARIABLES — La palette et les réglages
+   ============================================ */
+:root {
+    /* Couleurs */
+    --color-jaune:       #F8DA49;
+    --color-jaune-fonce: #E9BD40;
+    --color-noir:        #1A1A1A;
+    --color-blanc:       #FFFFFF;
+    --color-gris-clair:  #F5F5F5;
+    --color-texte:       #2C2C2C;
+
+    /* Police */
+    --font-principal: 'Inter', sans-serif;
+
+    /* Espacements */
+    --space-xs:  0.5rem;   /*  8px */
+    --space-sm:  1rem;     /* 16px */
+    --space-md:  1.5rem;   /* 24px */
+    --space-lg:  2.5rem;   /* 40px */
+    --space-xl:  4rem;     /* 64px */
+    --space-2xl: 6rem;     /* 96px */
+}
+
+/* ============================================
+   2. POLICE — Chargement local d'Inter
+   ============================================ */
+@font-face {
+    font-family: 'Inter';
+    src: url('/assets/fonts/inter-v20-latin-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/assets/fonts/inter-v20-latin-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ============================================
+   3. RESET — Neutraliser les styles du navigateur
+   ============================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: sans-serif;
-    padding: 2rem;
+    font-family: var(--font-principal);
+    color: var(--color-texte);
+    background-color: var(--color-blanc);
+    line-height: 1.6;
+    min-height: 100dvh;
+}
+
+img {
+    max-width: 100%;
+    display: block;
 }
