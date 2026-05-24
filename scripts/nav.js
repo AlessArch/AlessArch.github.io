@@ -60,7 +60,7 @@ points.forEach((point, i) => {
     });
 });
 
-// Pause au survol desktop
+// Pause au survol (desktop uniquement — mouseenter ne déclenche pas sur tactile)
 track.addEventListener('mouseenter', arreterTimer);
 track.addEventListener('mouseleave', demarrerTimer);
 
