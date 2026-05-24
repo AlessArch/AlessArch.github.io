@@ -85,6 +85,7 @@ let touchDepart = null;
 
 overflowEl.addEventListener('touchstart', (e) => {
     touchDepart = e.touches[0].clientX;
+    console.log('touchstart détecté', touchDepart);
 }, { passive: true });
 
 overflowEl.addEventListener('touchend', (e) => {
