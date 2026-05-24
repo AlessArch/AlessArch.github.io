@@ -9,11 +9,25 @@
     --color-blanc:       #FFFFFF;
     --color-gris-clair:  #F5F5F5;
     --color-texte:       #2C2C2C;
+    --color-cbnl:        #F7630C;
+
+    /* Couleurs dérivées (transparences) */
+    --color-border-soft:    rgba(255, 255, 255, 0.1);
+    --color-overlay-light:  rgba(255, 255, 255, 0.05);
+    --color-overlay-medium: rgba(255, 255, 255, 0.1);
 
     /* Police */
     --font-principal: 'Inter', sans-serif;
 
+    /* Tailles de texte */
+    --font-size-xs:   0.75rem;   /* 12px */
+    --font-size-sm:   0.875rem;  /* 14px */
+    --font-size-base: 1rem;      /* 16px */
+    --font-size-md:   1.125rem;  /* 18px */
+    --font-size-lg:   1.25rem;   /* 20px */
+
     /* Espacements */
+    --space-2xs: 0.25rem;  /*  4px */
     --space-xs:  0.5rem;   /*  8px */
     --space-sm:  1rem;     /* 16px */
     --space-md:  1.5rem;   /* 24px */
@@ -26,6 +40,11 @@
     --radius-md:   12px;
     --radius-lg:   16px;
     --radius-full: 9999px;
+
+    /* Ombres */
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.25);
 
     /* Transitions */
     --transition-fast: 150ms ease;
@@ -131,7 +150,7 @@ img {
 .nav__link {
     color: var(--color-blanc);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: var(--font-size-base);
     opacity: 0.85;
     transition: opacity var(--transition-fast);
     white-space: nowrap;
@@ -198,7 +217,7 @@ img {
     list-style: none;
     min-width: 220px;
     z-index: 200;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+   box-shadow: var(--shadow-lg);
 }
 
 .nav__item--dropdown:hover .nav__dropdown {
@@ -210,7 +229,7 @@ img {
     padding: var(--space-xs) var(--space-md);
     color: var(--color-blanc);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
     opacity: 0.8;
     transition: opacity var(--transition-fast), background-color var(--transition-fast);
     white-space: nowrap;
@@ -224,7 +243,7 @@ img {
 .nav__hamburger {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: var(--space-2xs);
     background: none;
     border: none;
     cursor: pointer;
@@ -328,7 +347,7 @@ img {
     .nav__dropdown-lien {
         padding: var(--space-xs) 0;
         text-align: center;
-        font-size: 0.85rem;
+        font-size: var(--font-size-sm);
         border-bottom: none;
     }
 }
@@ -344,6 +363,11 @@ img {
     margin-top: auto;
 }
 
+.footer__logo {
+    height: auto;
+    width: 140px;
+}
+
 .footer__inner {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -354,7 +378,7 @@ img {
 
 .footer__tagline {
     margin-top: var(--space-sm);
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     opacity: 0.7;
     line-height: 1.6;
 }
@@ -369,7 +393,7 @@ img {
 .footer__links a {
     color: var(--color-blanc);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
     opacity: 0.75;
     transition: opacity var(--transition-fast);
 }
@@ -382,7 +406,7 @@ img {
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
 }
 
 .footer__contact a {
@@ -419,7 +443,7 @@ img {
     padding-top: var(--space-md);
     max-width: 1100px;
     margin: 0 auto;
-    font-size: 0.8rem;
+    font-size: var(--font-size-xs);
     opacity: 0.6;
 }
 
@@ -521,7 +545,7 @@ img {
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-full);
     font-weight: 700;
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     text-decoration: none;
     transition: background-color var(--transition-fast), opacity var(--transition-fast);
     white-space: nowrap;
@@ -597,13 +621,13 @@ img {
 }
 
 .presentation__cbnl {
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
     color: var(--color-texte);
     opacity: 0.80;
 }
 
 .presentation__cbnl a {
-    color: #F7630C;
+    color: var(--color-cbnl);
     text-decoration: none;
     font-weight: 700;
 }
@@ -637,14 +661,14 @@ img {
 }
 
 .presentation__point-titre {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     font-weight: 700;
     color: var(--color-noir);
     margin-bottom: var(--space-xs);
 }
 
 .presentation__point-texte {
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
     color: var(--color-texte);
     line-height: 1.6;
 }
@@ -708,7 +732,7 @@ img {
 
 .carte-prestation:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-md);
 }
 
 .carte-prestation__visuel {
@@ -745,20 +769,20 @@ img {
 }
 
 .carte-prestation__titre {
-    font-size: 1.1rem;
+    font-size: var(--font-size-md);
     font-weight: 700;
     color: var(--color-noir);
 }
 
 .carte-prestation__texte {
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
     color: var(--color-texte);
     line-height: 1.6;
     flex: 1;
 }
 
 .carte-prestation__cta {
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
     font-weight: 700;
     color: var(--color-jaune-fonce);
     margin-top: var(--space-xs);
@@ -810,7 +834,7 @@ img {
 }
 
 .avis__note-texte {
-    font-size: 0.95rem;
+    font-size: var(--font-size-base);
     color: var(--color-texte);
     opacity: 0.75;
 }
@@ -847,12 +871,12 @@ img {
 
 .avis__etoiles-carte {
     color: var(--color-jaune);
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     letter-spacing: 2px;
 }
 
 .avis__texte {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     color: var(--color-texte);
     line-height: 1.8;
     font-style: italic;
@@ -861,7 +885,7 @@ img {
 
 .avis__auteur {
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: var(--font-size-base);
     color: var(--color-noir);
 }
 
