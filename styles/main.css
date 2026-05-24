@@ -165,6 +165,62 @@ img {
     background-color: rgba(255,255,255,0.1);
 }
 
+/* Dropdown */
+.nav__item--dropdown {
+    position: relative;
+}
+
+.nav__link--dropdown {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav__dropdown-icone {
+    transition: transform var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.nav__item--dropdown:hover .nav__dropdown-icone {
+    transform: rotate(180deg);
+}
+
+.nav__dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    padding-top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-noir);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    list-style: none;
+    min-width: 220px;
+    z-index: 200;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.nav__item--dropdown:hover .nav__dropdown {
+    display: block;
+}
+
+.nav__dropdown-lien {
+    display: block;
+    padding: var(--space-xs) var(--space-md);
+    color: var(--color-blanc);
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: opacity var(--transition-fast), background-color var(--transition-fast);
+    white-space: nowrap;
+}
+
+.nav__dropdown-lien:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
 .nav__hamburger {
     display: none;
     flex-direction: column;
@@ -238,6 +294,41 @@ img {
         display: block;
         border-bottom: none;
         padding: var(--space-sm) var(--space-xl);
+    }
+
+    /* Dropdown mobile */
+    .nav__item--dropdown:hover .nav__dropdown {
+        display: none;
+    }
+
+    .nav__item--dropdown--open .nav__dropdown {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        transform: none;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: var(--space-xs) 0;
+        min-width: unset;
+        width: 100%;
+    }
+
+    .nav__item--dropdown--open .nav__dropdown-icone {
+        transform: rotate(180deg);
+    }
+
+    .nav__dropdown li {
+        width: 100%;
+        border-bottom: none;
+    }
+
+    .nav__dropdown-lien {
+        padding: var(--space-xs) 0;
+        text-align: center;
+        font-size: 0.85rem;
+        border-bottom: none;
     }
 }
 

@@ -38,7 +38,20 @@
 
             <ul id="nav-list" class="nav__list">
                 <li><a href="/equipe.html" class="nav__link">L'équipe</a></li>
-                <li><a href="/services.html" class="nav__link">Nos prestations</a></li>
+                <li class="nav__item--dropdown">
+    <a href="/services.html" class="nav__link nav__link--dropdown">
+        Nos prestations
+        <svg class="nav__dropdown-icone" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"/>
+        </svg>
+    </a>
+    <ul class="nav__dropdown">
+        <li><a href="/panneaux-solaires.html" class="nav__dropdown-lien">Panneaux photovoltaïques</a></li>
+        <li><a href="/climatisation-gainable.html" class="nav__dropdown-lien">Climatisation gainable</a></li>
+        <li><a href="/climatisation.html" class="nav__dropdown-lien">Climatisation</a></li>
+        <li><a href="/thermodynamique.html" class="nav__dropdown-lien">Thermodynamique</a></li>
+    </ul>
+</li>
                 <li><a href="/realisations.html" class="nav__link">Chantiers réalisés</a></li>
                 <li><a href="/faq.html" class="nav__link">FAQ</a></li>
                 <li class="nav__list--actions-mobile"><a href="/simulateur.html" class="nav__link nav__link--primary">Simulateur</a></li>
