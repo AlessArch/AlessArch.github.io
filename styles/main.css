@@ -1291,3 +1291,235 @@ img {
 .btn--outline-noir:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
+/* ============================================
+   17. PAGE HERO
+   ============================================ */
+
+.page-hero {
+    background-color: var(--color-noir);
+    padding: var(--space-2xl) var(--space-lg);
+    text-align: center;
+}
+
+/* Variante avec photo de fond */
+.page-hero--photo {
+    position: relative;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2xl) var(--space-lg);
+}
+
+.page-hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+}
+
+.page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.45) 0%,
+        rgba(0, 0, 0, 0.65) 100%
+    );
+}
+
+.page-hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.page-hero__titre {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: var(--color-blanc);
+    margin-bottom: var(--space-md);
+}
+
+.page-hero__sous-titre {
+    font-size: var(--font-size-md);
+    color: var(--color-blanc);
+    opacity: 0.85;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .page-hero--photo {
+        min-height: 300px;
+    }
+}
+
+/* ============================================
+   18. PAGE ÉQUIPE
+   ============================================ */
+
+/* Intro */
+.equipe-intro {
+    padding: var(--space-xl) var(--space-lg) 0;
+}
+
+.equipe-intro__inner {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.equipe-intro__texte {
+    font-size: var(--font-size-md);
+    color: var(--color-texte);
+    line-height: 1.8;
+    text-align: center;
+    opacity: 0.85;
+}
+/* Photo groupe */
+.equipe-photo-groupe {
+    width: 100%;
+    overflow: hidden;
+}
+
+.equipe-photo-groupe__img {
+    width: 100%;
+    height: auto;          /* ← laisse la hauteur naturelle, pas de déformation */
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .equipe-photo-groupe__img {
+        height: auto;      /* idem sur mobile */
+    }
+}
+
+/* Section membres */
+.equipe {
+    padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+}
+
+.equipe__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+/* Carte membre */
+.membre {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+    background-color: var(--color-gris-clair);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    padding: var(--space-lg);
+}
+
+/* Membre avec photo à droite */
+.membre--inverse {
+    grid-template-columns: 1fr 280px;
+}
+
+.membre--inverse .membre__photo-wrapper {
+    order: 2;
+}
+
+.membre--inverse .membre__contenu {
+    order: 1;
+}
+
+/* Photo */
+.membre__photo-wrapper {
+    height: 320px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+}
+
+.membre__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+/* Contenu */
+.membre__contenu {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.membre__en-tete {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+}
+
+.membre__prenom {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-noir);
+}
+
+.membre__role {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-jaune-fonce);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.membre__bio {
+    font-size: var(--font-size-base);
+    color: var(--color-texte);
+    line-height: 1.8;
+}
+
+/* Tags compétences */
+.membre__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    list-style: none;
+    margin-top: var(--space-xs);
+}
+
+.membre__tag {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--color-noir);
+    background-color: var(--color-jaune);
+    padding: var(--space-2xs) var(--space-sm);
+    border-radius: var(--radius-full);
+}
+
+/* Mobile — empilement vertical */
+@media (max-width: 768px) {
+    .membre,
+    .membre--inverse {
+        grid-template-columns: 1fr;
+    }
+
+    .membre__photo-wrapper {
+        height: 260px;
+        width: 100%;
+    }
+
+    .membre--inverse .membre__photo-wrapper {
+        order: 0;
+    }
+
+    .membre--inverse .membre__contenu {
+        order: 1;
+        padding-left: 0;
+    }
+}
