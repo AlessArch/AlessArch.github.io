@@ -1523,3 +1523,62 @@ img {
         padding-left: 0;
     }
 }
+/* ============================================
+   19. PAGE FAQ COMPLÈTE
+   ============================================ */
+
+.faq-page {
+    padding: var(--space-2xl) var(--space-lg);
+    background-color: var(--color-blanc);
+}
+
+.faq-page__inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+}
+
+/* En-tête de catégorie */
+.faq-page__categorie-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 2px solid var(--color-jaune);
+}
+
+.faq-page__categorie-icone {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    background-color: var(--color-jaune);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-noir);
+}
+
+.faq-page__categorie-titre {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+    color: var(--color-noir);
+}
+
+/* Liste d'étapes dans une réponse FAQ */
+.faq__liste-etapes {
+    margin-top: var(--space-sm);
+    padding-left: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.faq__liste-etapes li {
+    font-size: var(--font-size-sm);
+    color: var(--color-texte);
+    line-height: 1.7;
+}
