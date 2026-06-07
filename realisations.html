@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#F8DA49">
+
+    <!-- SEO -->
+    <title>Chantiers réalisés — Installations solaires et climatisation dans les Landes</title>
+    <meta name="description" content="Découvrez les installations photovoltaïques et climatisation réalisées par SWATT à Biscarrosse, Parentis-en-Born, Pontenx et dans tout le nord des Landes.">
+    <meta name="author" content="SWATT Énergie Photovoltaïque">
+
+    <link rel="canonical" href="https://www.swatt-landes.fr/realisations.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="https://www.swatt-landes.fr/realisations.html">
+    <meta property="og:title"       content="Chantiers réalisés — Installations solaires et climatisation dans les Landes">
+    <meta property="og:description" content="Découvrez les installations photovoltaïques et climatisation réalisées par SWATT à Biscarrosse, Parentis-en-Born, Pontenx et dans tout le nord des Landes.">
+    <meta property="og:image"       content="https://www.swatt-landes.fr/assets/og-image.jpg">
+    <meta property="og:locale"      content="fr_FR">
+    <meta property="og:site_name"   content="SWATT Énergie Photovoltaïque">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/logo.ico">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav" aria-label="Navigation principale">
+            <a href="/index.html" class="nav__logo">
+                <img src="/assets/logo_sans_fond.png" alt="SWATT Énergie Photovoltaïque" width="120" height="50">
+            </a>
+            <ul id="nav-list" class="nav__list">
+                <li><a href="/equipe.html" class="nav__link">L'équipe</a></li>
+                <li class="nav__item--dropdown">
+                    <a href="/services.html" class="nav__link nav__link--dropdown">
+                        Nos prestations
+                        <svg class="nav__dropdown-icone" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </a>
+                    <ul class="nav__dropdown">
+                        <li><a href="/panneaux-solaires.html" class="nav__dropdown-lien">Panneaux photovoltaïques</a></li>
+                        <li><a href="/climatisation-gainable.html" class="nav__dropdown-lien">Climatisation gainable</a></li>
+                        <li><a href="/climatisation.html" class="nav__dropdown-lien">Climatisation</a></li>
+                        <li><a href="/thermodynamique.html" class="nav__dropdown-lien">Thermodynamique</a></li>
+                    </ul>
+                </li>
+                <li><a href="/realisations.html" class="nav__link" aria-current="page">Chantiers réalisés</a></li>
+                <li><a href="/faq.html" class="nav__link">FAQ</a></li>
+                <li class="nav__list--actions-mobile"><a href="/simulateur.html" class="nav__link nav__link--primary">Simulateur</a></li>
+                <li class="nav__list--actions-mobile"><a href="/contact.html" class="nav__link nav__link--outline">Nous contacter</a></li>
+            </ul>
+            <div class="nav__actions">
+                <a href="/simulateur.html" class="nav__link nav__link--primary">Simulateur</a>
+                <a href="/contact.html" class="nav__link nav__link--outline">Nous contacter</a>
+            </div>
+            <button class="nav__hamburger"
+                    aria-label="Ouvrir le menu"
+                    aria-expanded="false"
+                    aria-controls="nav-list">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO PAGE -->
+        <section class="page-hero">
+            <div class="page-hero__inner">
+                <h1 class="page-hero__titre">Nos chantiers réalisés</h1>
+                <p class="page-hero__sous-titre">Plus de 50 installations dans les Landes et le Bassin d'Arcachon — panneaux solaires, climatisation et thermodynamique.</p>
+            </div>
+        </section>
+
+        <!-- GALERIE CHANTIERS -->
+        <section class="realisations">
+            <div class="realisations__inner">
+
+                <!-- FILTRES -->
+                <div class="realisations__filtres" role="group" aria-label="Filtrer par prestation">
+                    <button class="filtre filtre--actif" data-filtre="tous">Tous les chantiers</button>
+                    <button class="filtre" data-filtre="solaire">Panneaux solaires</button>
+                    <button class="filtre" data-filtre="climatisation">Climatisation</button>
+                    <button class="filtre" data-filtre="gainable">Gainable</button>
+                    <button class="filtre" data-filtre="thermodynamique">Thermodynamique</button>
+                </div>
+
+                <!-- GRILLE -->
+                <div class="realisations__grille">
+
+                    <!-- ============================================================
+                         AJOUTER UN NOUVEAU CHANTIER ICI (en haut = le plus récent)
+                         Copier le bloc <article> ci-dessous, remplir les champs :
+                         - data-categorie : "solaire" | "climatisation" | "gainable" | "thermodynamique"
+                         - src de l'image : /images/chantiers/nom-du-fichier.webp
+                         - alt : description précise pour le SEO
+                         - .chantier__badge : label affiché sur la carte
+                         - .chantier__ville : ville du chantier
+                         - .chantier__specs : puissance + type de toiture
+                         - .chantier__titre : titre H2 SEO-friendly
+                         - .chantier__description : 3-4 lignes de contexte
+                    ============================================================ -->
+
+                    <!-- CHANTIER 1 — Pontenx-les-Forges 40 kWc (le plus récent en premier) -->
+                    <article class="chantier" data-categorie="solaire">
+                        <div class="chantier__visuel">
+                            <img
+                                src="/images/chantiers/pontenx-40kw.webp"
+                                alt="Installation photovoltaïque 40 kWc mairie Pontenx-les-Forges — école et salle des fêtes"
+                                width="600" height="400"
+                                loading="lazy">
+                            <span class="chantier__badge chantier__badge--solaire">Panneaux solaires</span>
+                        </div>
+                        <div class="chantier__contenu">
+                            <div class="chantier__meta">
+                                <span class="chantier__ville">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    Pontenx-les-Forges
+                                </span>
+                                <span class="chantier__specs">40 kWc · Tuiles · Bâtiment public</span>
+                            </div>
+                            <h2 class="chantier__titre">Centrale solaire 40 kWc — Mairie de Pontenx-les-Forges</h2>
+                            <p class="chantier__description">Une installation d'envergure réalisée pour la commune de Pontenx-les-Forges : deux centrales photovoltaïques de 20 kWc chacune, posées sur les toitures de l'école et de la salle des fêtes. Un projet exemplaire porté par la mairie pour réduire la facture énergétique des bâtiments publics et produire une électricité verte locale. Les panneaux, installés sur tuiles par nos charpentiers, assurent une production maximale tout en préservant l'intégrité de la couverture.</p>
+                            <a href="/panneaux-solaires.html" class="chantier__lien">Découvrir notre prestation →</a>
+                        </div>
+                    </article>
+
+                    <!-- CHANTIER 2 — Biscarrosse 4,5 kWc -->
+                    <article class="chantier" data-categorie="solaire">
+                        <div class="chantier__visuel">
+                            <img
+                                src="/images/chantiers/biscarrosse-4kw.webp"
+                                alt="Installation panneaux solaires 4,5 kWc maison individuelle Biscarrosse"
+                                width="600" height="400"
+                                loading="lazy">
+                            <span class="chantier__badge chantier__badge--solaire">Panneaux solaires</span>
+                        </div>
+                        <div class="chantier__contenu">
+                            <div class="chantier__meta">
+                                <span class="chantier__ville">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    Biscarrosse
+                                </span>
+                                <span class="chantier__specs">4,5 kWc · Tuiles · Particulier</span>
+                            </div>
+                            <h2 class="chantier__titre">Installation photovoltaïque 4,5 kWc — Biscarrosse</h2>
+                            <p class="chantier__description">Pour cette maison individuelle à Biscarrosse, SWATT a installé une centrale solaire de 4,5 kWc sur toiture en tuiles. Un dimensionnement adapté à la consommation d'un foyer de 3 à 4 personnes, permettant de couvrir une large part des besoins en électricité en autoconsommation. Avec l'ensoleillement exceptionnel des Landes, ce type d'installation offre un retour sur investissement particulièrement rapide.</p>
+                            <a href="/panneaux-solaires.html" class="chantier__lien">Découvrir notre prestation →</a>
+                        </div>
+                    </article>
+
+                    <!-- CHANTIER 3 — Parentis-en-Born 36 kWc -->
+                    <article class="chantier" data-categorie="solaire">
+                        <div class="chantier__visuel">
+                            <img
+                                src="/images/chantiers/parentis-36kw.webp"
+                                alt="Centrale photovoltaïque 36 kWc bac acier Parentis-en-Born"
+                                width="600" height="400"
+                                loading="lazy">
+                            <span class="chantier__badge chantier__badge--solaire">Panneaux solaires</span>
+                        </div>
+                        <div class="chantier__contenu">
+                            <div class="chantier__meta">
+                                <span class="chantier__ville">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    Parentis-en-Born
+                                </span>
+                                <span class="chantier__specs">36 kWc · Bac acier · Particulier</span>
+                            </div>
+                            <h2 class="chantier__titre">Centrale solaire 36 kWc sur bac acier — Parentis-en-Born</h2>
+                            <p class="chantier__description">Installation d'une centrale photovoltaïque de 36 kWc sur une toiture en bac acier à Parentis-en-Born. Ce type de couverture est particulièrement adapté aux grandes surfaces solaires : la pose est rapide, les fixations sont intégrées au profil du bac et l'étanchéité est garantie sans perforation de la membrane. Un chantier de grande envergure réalisé clé en main, de la déclaration préalable jusqu'à la mise en service et le raccordement au réseau.</p>
+                            <a href="/panneaux-solaires.html" class="chantier__lien">Découvrir notre prestation →</a>
+                        </div>
+                    </article>
+
+                    <!-- CHANTIER 4 — Biscarrosse 3 kWc -->
+                    <article class="chantier" data-categorie="solaire">
+                        <div class="chantier__visuel">
+                            <img
+                                src="/images/chantiers/biscarrosse-3kw.webp"
+                                alt="Installation panneaux solaires 3 kWc maison individuelle Biscarrosse Landes"
+                                width="600" height="400"
+                                loading="lazy">
+                            <span class="chantier__badge chantier__badge--solaire">Panneaux solaires</span>
+                        </div>
+                        <div class="chantier__contenu">
+                            <div class="chantier__meta">
+                                <span class="chantier__ville">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    Biscarrosse
+                                </span>
+                                <span class="chantier__specs">3 kWc · Tuiles · Particulier</span>
+                            </div>
+                            <h2 class="chantier__titre">Installation photovoltaïque 3 kWc — Biscarrosse</h2>
+                            <p class="chantier__description">Une installation d'entrée de gamme bien dimensionnée pour ce particulier de Biscarrosse souhaitant franchir le pas de l'autoconsommation. Avec 3 kWc posés sur tuiles, ce foyer couvre une part significative de sa consommation quotidienne — éclairage, électroménager, box internet — et réduit sa facture EDF dès la première année. Un projet simple, rapide à installer, et rentable sur le long terme grâce à l'ensoleillement des Landes.</p>
+                            <a href="/panneaux-solaires.html" class="chantier__lien">Découvrir notre prestation →</a>
+                        </div>
+                    </article>
+
+                </div>
+                <!-- FIN GRILLE -->
+
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="cta-final">
+            <div class="cta-final__inner">
+                <h2 class="cta-final__titre">Votre projet, notre prochain chantier</h2>
+                <p class="cta-final__texte">Estimez votre installation en 2 minutes avec notre simulateur, ou appelez-nous directement pour en discuter.</p>
+                <div class="cta-final__actions">
+                    <a href="/simulateur.html" class="btn btn--primary">Simuler mon installation</a>
+                    <a href="tel:+33650547158" class="btn btn--outline-noir">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.59 3.44 2 2 0 0 1 3.56 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6 6l.83-.83a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16z"/>
+                        </svg>
+                        06 50 54 71 58
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <img src="/assets/logo_sans_fond.png" alt="SWATT Énergie Photovoltaïque" width="140" height="auto" loading="lazy" class="footer__logo">
+                <p class="footer__tagline">Installation solaire, climatisation<br>et thermodynamique dans les Landes.</p>
+            </div>
+            <nav class="footer__nav" aria-label="Navigation secondaire">
+                <ul class="footer__links">
+                    <li><a href="/equipe.html">L'équipe</a></li>
+                    <li><a href="/services.html">Nos prestations</a></li>
+                    <li><a href="/realisations.html">Chantiers réalisés</a></li>
+                    <li><a href="/faq.html">FAQ</a></li>
+                    <li><a href="/contact.html">Nous contacter</a></li>
+                    <li><a href="/simulateur.html">Simulateur</a></li>
+                </ul>
+            </nav>
+            <div class="footer__contact">
+                <p><a href="tel:+33650547158">+33 6 50 54 71 58</a></p>
+                <p><a href="mailto:contact@swatt-landes.fr">contact@swatt-landes.fr</a></p>
+                <p>Biscarrosse &amp; Parentis-en-Born</p>
+                <div class="footer__social">
+                    <a href="https://www.facebook.com/profile.php?id=61558687640700" target="_blank" rel="noopener noreferrer" aria-label="Facebook SWATT">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com/swatt.landes" target="_blank" rel="noopener noreferrer" aria-label="Instagram SWATT">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; <span id="footer-year"></span> SWATT Énergie Photovoltaïque. Tous droits réservés.</p>
+            <a href="/mentions-legales.html">Mentions légales</a>
+        </div>
+    </footer>
+
+    <script src="/scripts/nav.js"></script>
+    <script src="/scripts/realisations.js"></script>
+</body>
+</html>

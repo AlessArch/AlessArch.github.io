@@ -1582,3 +1582,206 @@ img {
     color: var(--color-texte);
     line-height: 1.7;
 }
+
+/* ============================================
+   20. PAGE RÉALISATIONS
+   ============================================ */
+
+.realisations {
+    padding: var(--space-2xl) var(--space-lg);
+    background-color: var(--color-gris-clair);
+}
+
+.realisations__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Filtres */
+.realisations__filtres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-xl);
+    justify-content: center;
+}
+
+.filtre {
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-full);
+    border: 1.5px solid var(--color-noir);
+    background: none;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-noir);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+    font-family: var(--font-principal);
+}
+
+.filtre:hover {
+    background-color: var(--color-noir);
+    color: var(--color-blanc);
+}
+
+.filtre--actif {
+    background-color: var(--color-jaune);
+    border-color: var(--color-jaune);
+    color: var(--color-noir);
+}
+
+.filtre--actif:hover {
+    background-color: var(--color-jaune-fonce);
+    border-color: var(--color-jaune-fonce);
+    color: var(--color-noir);
+}
+
+/* Grille */
+.realisations__grille {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+}
+
+/* Carte chantier */
+.chantier {
+    background-color: var(--color-blanc);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.chantier:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Visuel */
+.chantier__visuel {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+}
+
+.chantier__visuel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-base);
+}
+
+.chantier:hover .chantier__visuel img {
+    transform: scale(1.04);
+}
+
+/* Badge prestation */
+.chantier__badge {
+    position: absolute;
+    top: var(--space-sm);
+    left: var(--space-sm);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    padding: var(--space-2xs) var(--space-sm);
+    border-radius: var(--radius-full);
+}
+
+.chantier__badge--solaire {
+    background-color: var(--color-jaune);
+    color: var(--color-noir);
+}
+
+.chantier__badge--climatisation {
+    background-color: #3B82F6;
+    color: var(--color-blanc);
+}
+
+.chantier__badge--gainable {
+    background-color: #6366F1;
+    color: var(--color-blanc);
+}
+
+.chantier__badge--thermodynamique {
+    background-color: #10B981;
+    color: var(--color-blanc);
+}
+
+/* Contenu */
+.chantier__contenu {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    flex: 1;
+}
+
+.chantier__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.chantier__ville {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-noir);
+}
+
+.chantier__specs {
+    font-size: var(--font-size-xs);
+    color: var(--color-texte);
+    opacity: 0.65;
+}
+
+.chantier__titre {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    color: var(--color-noir);
+    line-height: 1.35;
+}
+
+.chantier__description {
+    font-size: var(--font-size-sm);
+    color: var(--color-texte);
+    line-height: 1.8;
+    flex: 1;
+}
+
+.chantier__lien {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-noir);
+    text-decoration: none;
+    border-bottom: 2px solid var(--color-jaune);
+    padding-bottom: 2px;
+    margin-top: var(--space-xs);
+    transition: opacity var(--transition-fast);
+    align-self: flex-start;
+}
+
+.chantier__lien:hover {
+    opacity: 0.7;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .realisations__grille {
+        grid-template-columns: 1fr;
+    }
+
+    .realisations__filtres {
+        gap: var(--space-xs);
+    }
+
+    .filtre {
+        font-size: var(--font-size-xs);
+        padding: var(--space-xs) var(--space-sm);
+    }
+}
