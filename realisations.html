@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#F8DA49">
 
-    <!-- SEO -->
     <title>Chantiers réalisés — Installations solaires et climatisation dans les Landes</title>
     <meta name="description" content="Découvrez les installations photovoltaïques et climatisation réalisées par SWATT à Biscarrosse, Parentis-en-Born, Pontenx et dans tout le nord des Landes.">
     <meta name="author" content="SWATT Énergie Photovoltaïque">
 
     <link rel="canonical" href="https://www.swatt-landes.fr/realisations.html">
 
-    <!-- Open Graph -->
     <meta property="og:type"        content="website">
     <meta property="og:url"         content="https://www.swatt-landes.fr/realisations.html">
     <meta property="og:title"       content="Chantiers réalisés — Installations solaires et climatisation dans les Landes">
@@ -21,10 +19,7 @@
     <meta property="og:locale"      content="fr_FR">
     <meta property="og:site_name"   content="SWATT Énergie Photovoltaïque">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/logo.ico">
-
-    <!-- Styles -->
     <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
@@ -72,7 +67,6 @@
 
     <main>
 
-        <!-- HERO PAGE -->
         <section class="page-hero">
             <div class="page-hero__inner">
                 <h1 class="page-hero__titre">Nos chantiers réalisés</h1>
@@ -80,11 +74,9 @@
             </div>
         </section>
 
-        <!-- GALERIE CHANTIERS -->
         <section class="realisations">
             <div class="realisations__inner">
 
-                <!-- FILTRES -->
                 <div class="realisations__filtres" role="group" aria-label="Filtrer par prestation">
                     <button class="filtre filtre--actif" data-filtre="tous">Tous les chantiers</button>
                     <button class="filtre" data-filtre="solaire">Panneaux solaires</button>
@@ -93,30 +85,23 @@
                     <button class="filtre" data-filtre="thermodynamique">Thermodynamique</button>
                 </div>
 
-                <!-- GRILLE -->
                 <div class="realisations__grille">
 
                     <!-- ============================================================
                          AJOUTER UN NOUVEAU CHANTIER ICI (en haut = le plus récent)
-                         Copier le bloc <article> ci-dessous, remplir les champs :
                          - data-categorie : "solaire" | "climatisation" | "gainable" | "thermodynamique"
-                         - src de l'image : /images/chantiers/nom-du-fichier.webp
+                         - src : /images/chantiers/nom-du-fichier.webp
                          - alt : description précise pour le SEO
-                         - .chantier__badge : label affiché sur la carte
-                         - .chantier__ville : ville du chantier
-                         - .chantier__specs : puissance + type de toiture
-                         - .chantier__titre : titre H2 SEO-friendly
-                         - .chantier__description : 3-4 lignes de contexte
+                         - chantier__badge--[solaire|climatisation|gainable|thermodynamique]
+                         - chantier__ville, chantier__specs, chantier__titre (H2 SEO), chantier__description (3-4 lignes)
                     ============================================================ -->
 
-                    <!-- CHANTIER 1 — Pontenx-les-Forges 40 kWc (le plus récent en premier) -->
+                    <!-- 1 — Pontenx 40kWc solaire -->
                     <article class="chantier" data-categorie="solaire">
                         <div class="chantier__visuel">
-                            <img
-                                src="/images/chantiers/pontenx-40kw.webp"
-                                alt="Installation photovoltaïque 40 kWc mairie Pontenx-les-Forges — école et salle des fêtes"
-                                width="600" height="400"
-                                loading="lazy">
+                            <img src="/images/chantiers/pontenx-40kw.webp"
+                                 alt="Installation photovoltaïque 40 kWc mairie Pontenx-les-Forges — école et salle des fêtes"
+                                 width="600" height="400" loading="lazy">
                             <span class="chantier__badge chantier__badge--solaire">Panneaux solaires</span>
                         </div>
                         <div class="chantier__contenu">
@@ -133,14 +118,34 @@
                         </div>
                     </article>
 
-                    <!-- CHANTIER 2 — Biscarrosse 4,5 kWc -->
+                    <!-- 2 — Gainable bureaux Parentis -->
+                    <article class="chantier" data-categorie="gainable">
+                        <div class="chantier__visuel">
+                            <img src="/images/chantiers/parentis-gainable-bureaux.webp"
+                                 alt="Installation climatisation gainable Hitachi bureaux Parentis-en-Born"
+                                 width="600" height="400" loading="lazy">
+                            <span class="chantier__badge chantier__badge--gainable">Gainable</span>
+                        </div>
+                        <div class="chantier__contenu">
+                            <div class="chantier__meta">
+                                <span class="chantier__ville">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    Parentis-en-Born
+                                </span>
+                                <span class="chantier__specs">Hitachi Air Home · Professionnel</span>
+                            </div>
+                            <h2 class="chantier__titre">Climatisation gainable pour bureaux — Parentis-en-Born</h2>
+                            <p class="chantier__description">Installation d'un système de climatisation gainable Hitachi Air Home dans des locaux professionnels à Parentis-en-Born. Invisible et silencieux, le gainable est la solution idéale pour les espaces de travail : un confort thermique homogène dans l'ensemble des pièces, sans unité murale visible. SWATT a pris en charge l'intégralité du projet, de l'étude technique à la mise en service.</p>
+                            <a href="/climatisation-gainable.html" class="chantier__lien">Découvrir notre prestation →</a>
+                        </div>
+                    </article>
+
+                    <!-- 3 — Biscarrosse 4,5kWc solaire -->
                     <article class="chantier" data-categorie="solaire">
                         <div class="chantier__visuel">
-                            <img
-                                src="/images/chantiers/biscarrosse-4kw.webp"
-                                alt="Installation panneaux solaires 4,5 kWc maison individuelle Biscarrosse"
-                                width="600" height="400"
-                                loading="lazy">
+                            <img src="/images/chantiers/biscarrosse-4kw.webp"
+                                 alt="Installation panneaux solaires 4,5 kWc maison individuelle Biscarrosse"
+                                 width="600" height="400" loading="lazy">
                             <span class="chantier__badge chantier__badge--solaire">Panneaux solaires</span>
                         </div>
                         <div class="chantier__contenu">
@@ -157,14 +162,56 @@
                         </div>
                     </article>
 
-                    <!-- CHANTIER 3 — Parentis-en-Born 36 kWc -->
+                    <!-- 4 — Clim tri-split Biscarrosse (3x1,5kw + mono 5kw) -->
+                    <article class="chantier" data-categorie="climatisation">
+                        <div class="chantier__visuel">
+                            <img src="/images/chantiers/biscarrosse-clim-trisplit-1.webp"
+                                 alt="Installation climatisation tri-split et mono-split Hitachi Biscarrosse"
+                                 width="600" height="400" loading="lazy">
+                            <span class="chantier__badge chantier__badge--climatisation">Climatisation</span>
+                        </div>
+                        <div class="chantier__contenu">
+                            <div class="chantier__meta">
+                                <span class="chantier__ville">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    Biscarrosse
+                                </span>
+                                <span class="chantier__specs">Tri-split 3×1,5 kW + Mono 5 kW · Hitachi · Particulier</span>
+                            </div>
+                            <h2 class="chantier__titre">Climatisation tri-split et mono-split Hitachi — Biscarrosse</h2>
+                            <p class="chantier__description">Chantier complet pour ce particulier à Biscarrosse : un tri-split Hitachi Air Home avec trois unités intérieures de 1,5 kW pour les chambres, complété par un mono-split de 5 kW pour la grande pièce de vie. Deux systèmes indépendants, parfaitement adaptés à la configuration de la maison, pour un confort total pièce par pièce tout au long de l'été landais.</p>
+                            <a href="/climatisation.html" class="chantier__lien">Découvrir notre prestation →</a>
+                        </div>
+                    </article>
+
+                    <!-- 5 — Gainable maison Parentis -->
+                    <article class="chantier" data-categorie="gainable">
+                        <div class="chantier__visuel">
+                            <img src="/images/chantiers/parentis-gainable-maison.webp"
+                                 alt="Installation climatisation gainable Hitachi maison individuelle Parentis-en-Born"
+                                 width="600" height="400" loading="lazy">
+                            <span class="chantier__badge chantier__badge--gainable">Gainable</span>
+                        </div>
+                        <div class="chantier__contenu">
+                            <div class="chantier__meta">
+                                <span class="chantier__ville">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    Parentis-en-Born
+                                </span>
+                                <span class="chantier__specs">Hitachi Air Home · Particulier</span>
+                            </div>
+                            <h2 class="chantier__titre">Climatisation gainable maison individuelle — Parentis-en-Born</h2>
+                            <p class="chantier__description">Pour cette maison individuelle à Parentis-en-Born, SWATT a installé une climatisation gainable Hitachi Air Home intégrée dans les combles. Le résultat : une maison climatisée de manière uniforme, été comme hiver, sans aucune unité visible dans les pièces. Un confort optimal et une installation discrète, réalisée par nos techniciens spécialisés.</p>
+                            <a href="/climatisation-gainable.html" class="chantier__lien">Découvrir notre prestation →</a>
+                        </div>
+                    </article>
+
+                    <!-- 6 — Parentis 36kWc solaire -->
                     <article class="chantier" data-categorie="solaire">
                         <div class="chantier__visuel">
-                            <img
-                                src="/images/chantiers/parentis-36kw.webp"
-                                alt="Centrale photovoltaïque 36 kWc bac acier Parentis-en-Born"
-                                width="600" height="400"
-                                loading="lazy">
+                            <img src="/images/chantiers/parentis-36kw.webp"
+                                 alt="Centrale photovoltaïque 36 kWc bac acier Parentis-en-Born"
+                                 width="600" height="400" loading="lazy">
                             <span class="chantier__badge chantier__badge--solaire">Panneaux solaires</span>
                         </div>
                         <div class="chantier__contenu">
@@ -181,14 +228,34 @@
                         </div>
                     </article>
 
-                    <!-- CHANTIER 4 — Biscarrosse 3 kWc -->
+                    <!-- 7 — Clim tri-split Biscarrosse (2x1,5kw + 2,5kw) -->
+                    <article class="chantier" data-categorie="climatisation">
+                        <div class="chantier__visuel">
+                            <img src="/images/chantiers/biscarrosse-clim-trisplit-2.webp"
+                                 alt="Installation climatisation tri-split Hitachi Biscarrosse 2x1,5kw 2,5kw"
+                                 width="600" height="400" loading="lazy">
+                            <span class="chantier__badge chantier__badge--climatisation">Climatisation</span>
+                        </div>
+                        <div class="chantier__contenu">
+                            <div class="chantier__meta">
+                                <span class="chantier__ville">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    Biscarrosse
+                                </span>
+                                <span class="chantier__specs">Tri-split Hitachi · 2×1,5 kW + 2,5 kW · Particulier</span>
+                            </div>
+                            <h2 class="chantier__titre">Climatisation tri-split Hitachi Air Home — Biscarrosse</h2>
+                            <p class="chantier__description">Installation d'un système tri-split Hitachi Air Home pour ce particulier à Biscarrosse : deux unités intérieures de 1,5 kW pour les chambres et une unité de 2,5 kW pour le séjour, le tout raccordé à une seule unité extérieure. Une solution économique et efficace pour climatiser plusieurs pièces indépendamment, avec une seule installation extérieure discrète.</p>
+                            <a href="/climatisation.html" class="chantier__lien">Découvrir notre prestation →</a>
+                        </div>
+                    </article>
+
+                    <!-- 8 — Biscarrosse 3kWc solaire -->
                     <article class="chantier" data-categorie="solaire">
                         <div class="chantier__visuel">
-                            <img
-                                src="/images/chantiers/biscarrosse-3kw.webp"
-                                alt="Installation panneaux solaires 3 kWc maison individuelle Biscarrosse Landes"
-                                width="600" height="400"
-                                loading="lazy">
+                            <img src="/images/chantiers/biscarrosse-3kw.webp"
+                                 alt="Installation panneaux solaires 3 kWc maison individuelle Biscarrosse Landes"
+                                 width="600" height="400" loading="lazy">
                             <span class="chantier__badge chantier__badge--solaire">Panneaux solaires</span>
                         </div>
                         <div class="chantier__contenu">
@@ -206,12 +273,10 @@
                     </article>
 
                 </div>
-                <!-- FIN GRILLE -->
 
             </div>
         </section>
 
-        <!-- CTA FINAL -->
         <section class="cta-final">
             <div class="cta-final__inner">
                 <h2 class="cta-final__titre">Votre projet, notre prochain chantier</h2>
