@@ -1785,3 +1785,560 @@ img {
         padding: var(--space-xs) var(--space-sm);
     }
 }
+/* ============================================
+   21. PAGE HÉRO — ACTIONS (boutons dans le hero photo)
+   ============================================ */
+
+.page-hero__actions {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--space-lg);
+}
+
+/* ============================================
+   22. INTRODUCTION PRESTATION
+   ============================================ */
+
+.prestation-intro {
+    padding: var(--space-2xl) var(--space-lg);
+    background-color: var(--color-blanc);
+}
+
+.prestation-intro__inner {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.prestation-intro__titre {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-noir);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+}
+
+.prestation-intro__corps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.prestation-intro__corps p {
+    font-size: var(--font-size-base);
+    color: var(--color-texte);
+    line-height: 1.8;
+}
+
+/* ============================================
+   23. BÉNÉFICES
+   ============================================ */
+
+.benefices {
+    padding: var(--space-2xl) var(--space-lg);
+    background-color: var(--color-gris-clair);
+}
+
+.benefices__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.benefices__header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.benefices__titre {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-noir);
+    margin-bottom: var(--space-sm);
+}
+
+.benefices__sous-titre {
+    color: var(--color-texte);
+    opacity: 0.75;
+}
+
+.benefices__grille {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+}
+
+.benefice__carte {
+    background-color: var(--color-blanc);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-sm);
+}
+
+.benefice__icone {
+    width: 64px;
+    height: 64px;
+    background-color: var(--color-jaune);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-noir);
+    flex-shrink: 0;
+}
+
+.benefice__titre {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    color: var(--color-noir);
+}
+
+.benefice__texte {
+    font-size: var(--font-size-sm);
+    color: var(--color-texte);
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .benefices__grille {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   24. POURQUOI SWATT (liste détaillée)
+   ============================================ */
+
+.pourquoi-swatt {
+    padding: var(--space-2xl) var(--space-lg);
+    background-color: var(--color-blanc);
+}
+
+.pourquoi-swatt__inner {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.pourquoi-swatt__header {
+    margin-bottom: var(--space-xl);
+}
+
+.pourquoi-swatt__titre {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-noir);
+    text-align: center;
+}
+
+.pourquoi-swatt__liste {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.pourquoi-swatt__item {
+    display: flex;
+    gap: var(--space-md);
+    align-items: flex-start;
+}
+
+.pourquoi-swatt__icone {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    background-color: var(--color-jaune);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-noir);
+    margin-top: 4px;
+}
+
+.pourquoi-swatt__item-titre {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    color: var(--color-noir);
+    margin-bottom: var(--space-xs);
+}
+
+.pourquoi-swatt__item-texte {
+    font-size: var(--font-size-sm);
+    color: var(--color-texte);
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .pourquoi-swatt__item {
+        flex-direction: column;
+    }
+}
+
+/* ============================================
+   25. MATÉRIEL
+   ============================================ */
+
+.materiel {
+    padding: var(--space-2xl) var(--space-lg);
+    background-color: var(--color-noir);
+}
+
+.materiel__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.materiel__titre {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-blanc);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.materiel__grille {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+}
+
+.materiel__carte {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-sm);
+}
+
+.materiel__icone {
+    width: 64px;
+    height: 64px;
+    background-color: var(--color-jaune);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-noir);
+    flex-shrink: 0;
+}
+
+.materiel__carte-titre {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    color: var(--color-blanc);
+}
+
+.materiel__carte-texte {
+    font-size: var(--font-size-sm);
+    color: var(--color-blanc);
+    opacity: 0.75;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .materiel__grille {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   26. FORMULES / TARIFS
+   ============================================ */
+
+.formules {
+    padding: var(--space-2xl) var(--space-lg);
+    background-color: var(--color-gris-clair);
+}
+
+.formules__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.formules__header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.formules__titre {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-noir);
+    margin-bottom: var(--space-sm);
+}
+
+.formules__sous-titre {
+    color: var(--color-texte);
+    opacity: 0.75;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.formules__grille {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    align-items: start;
+    margin-bottom: var(--space-lg);
+}
+
+.formule__carte {
+    background-color: var(--color-blanc);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    position: relative;
+}
+
+.formule__carte--vedette {
+    border: 2px solid var(--color-jaune);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+.formule__badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-jaune);
+    color: var(--color-noir);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    padding: var(--space-2xs) var(--space-sm);
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+}
+
+.formule__header {
+    text-align: center;
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-gris-clair);
+}
+
+.formule__puissance {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-noir);
+}
+
+.formule__prix {
+    font-size: var(--font-size-sm);
+    color: var(--color-texte);
+    opacity: 0.75;
+    margin-top: var(--space-xs);
+}
+
+.formule__prix strong {
+    font-size: var(--font-size-lg);
+    color: var(--color-noir);
+    opacity: 1;
+}
+
+.formule__liste {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    flex: 1;
+}
+
+.formule__liste li {
+    font-size: var(--font-size-sm);
+    color: var(--color-texte);
+    line-height: 1.5;
+    padding-left: var(--space-md);
+    position: relative;
+}
+
+.formule__liste li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-jaune-fonce);
+    font-weight: 700;
+}
+
+.formules__note {
+    font-size: var(--font-size-xs);
+    color: var(--color-texte);
+    opacity: 0.6;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .formules__grille {
+        grid-template-columns: 1fr;
+    }
+    .formule__carte--vedette {
+        transform: none;
+    }
+}
+
+/* ============================================
+   27. PROCESS EN ÉTAPES
+   ============================================ */
+
+.process {
+    padding: var(--space-2xl) var(--space-lg);
+    background-color: var(--color-blanc);
+}
+
+.process__inner {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.process__titre {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-noir);
+    text-align: center;
+    margin-bottom: var(--space-sm);
+}
+
+.process__sous-titre {
+    text-align: center;
+    color: var(--color-texte);
+    opacity: 0.75;
+    margin-bottom: var(--space-xl);
+}
+
+.process__liste {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.process__etape {
+    display: flex;
+    gap: var(--space-md);
+    align-items: flex-start;
+}
+
+.process__num {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-jaune);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--font-size-md);
+    color: var(--color-noir);
+    margin-top: 2px;
+}
+
+.process__etape-titre {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-noir);
+    margin-bottom: var(--space-xs);
+}
+
+.process__etape-texte {
+    font-size: var(--font-size-sm);
+    color: var(--color-texte);
+    line-height: 1.7;
+}
+
+/* ============================================
+   28. CHANTIER VITRINE
+   ============================================ */
+
+.chantier-vitrine {
+    padding: var(--space-2xl) var(--space-lg);
+    background-color: var(--color-gris-clair);
+}
+
+.chantier-vitrine__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.chantier-vitrine__titre {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-noir);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.chantier-vitrine__carte {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+    background-color: var(--color-blanc);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.chantier-vitrine__visuel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.chantier-vitrine__contenu {
+    padding: var(--space-xl) var(--space-xl) var(--space-xl) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.chantier-vitrine__sous-titre {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-noir);
+}
+
+.chantier-vitrine__texte {
+    font-size: var(--font-size-sm);
+    color: var(--color-texte);
+    line-height: 1.8;
+}
+
+.chantier-vitrine__lien {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-noir);
+    text-decoration: none;
+    border-bottom: 2px solid var(--color-jaune);
+    padding-bottom: 2px;
+    margin-top: var(--space-xs);
+    transition: opacity var(--transition-fast);
+    align-self: flex-start;
+}
+
+.chantier-vitrine__lien:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .chantier-vitrine__carte {
+        grid-template-columns: 1fr;
+    }
+    .chantier-vitrine__contenu {
+        padding: var(--space-md);
+    }
+}
