@@ -105,6 +105,11 @@ img {
     max-width: 100%;
     display: block;
 }
+/* Lien actif dans la navigation */
+[aria-current="page"] {
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-jaune);
+}
 
 /* ============================================
    4. COMPOSANTS — Header, navigation
