@@ -2360,3 +2360,36 @@ img {
 .pourquoi-swatt__item-texte a:hover {
     opacity: 0.7;
 }
+/* ============================================
+   29. VIGNETTES CHANTIERS LIÉS (pages prestations)
+   ============================================ */
+
+.chantiers-lies {
+    padding: var(--space-2xl) var(--space-lg);
+    background-color: var(--color-blanc);
+}
+
+.chantiers-lies__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.chantiers-lies__titre {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-noir);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.chantiers-lies__grille {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+    .chantiers-lies__grille {
+        grid-template-columns: 1fr;
+    }
+}
