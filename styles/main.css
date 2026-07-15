@@ -2393,3 +2393,30 @@ img {
         grid-template-columns: 1fr;
     }
 }
+/* ============================================
+   30. CHANTIER VITRINE PLACEHOLDER
+   ============================================ */
+
+.chantier-vitrine__carte--placeholder {
+    grid-template-columns: 280px 1fr;
+}
+
+.chantier-vitrine__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-gris-clair);
+    min-height: 280px;
+    color: var(--color-texte);
+    opacity: 0.3;
+}
+
+@media (max-width: 768px) {
+    .chantier-vitrine__carte--placeholder {
+        grid-template-columns: 1fr;
+    }
+
+    .chantier-vitrine__placeholder {
+        min-height: 160px;
+    }
+}
