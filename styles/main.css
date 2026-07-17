@@ -2747,3 +2747,219 @@ img {
         gap: var(--space-lg);
     }
 }
+/* ============================================
+   31. PAGE CONTACT
+   ============================================ */
+
+.contact {
+    padding: var(--space-2xl) var(--space-lg);
+    background-color: var(--color-blanc);
+}
+
+.contact__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+}
+
+.contact__form-wrapper {
+    background-color: var(--color-gris-clair);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+}
+
+.contact__titre {
+    font-size: clamp(1.5rem, 3vw, 1.75rem);
+    font-weight: 700;
+    color: var(--color-noir);
+    margin-bottom: var(--space-xs);
+}
+
+.contact__sous-titre {
+    font-size: var(--font-size-sm);
+    color: var(--color-texte);
+    opacity: 0.75;
+    margin-bottom: var(--space-lg);
+}
+
+.contact__infos {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.contact__bloc {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: flex-start;
+}
+
+.contact__bloc-icone {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-jaune);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-noir);
+}
+
+.contact__bloc-label {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-texte);
+    opacity: 0.6;
+    margin-bottom: 2px;
+}
+
+.contact__telephone {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-noir);
+    text-decoration: none;
+}
+
+.contact__telephone:hover {
+    color: var(--color-jaune-fonce);
+}
+
+.contact__lien {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-noir);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--color-jaune);
+}
+
+.contact__lien:hover {
+    opacity: 0.7;
+}
+
+.contact__detail {
+    font-size: var(--font-size-sm);
+    color: var(--color-texte);
+    line-height: 1.6;
+}
+
+.contact__carte {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    line-height: 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.contact__carte iframe {
+    display: block;
+}
+
+.contact__intro-lien {
+    text-align: center;
+    max-width: 720px;
+    margin: var(--space-xl) auto 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-texte);
+    line-height: 1.7;
+}
+
+.contact__intro-lien a {
+    color: var(--color-noir);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--color-jaune);
+}
+
+.contact__intro-lien a:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .contact__inner {
+        grid-template-columns: 1fr;
+    }
+    .contact__form-wrapper {
+        padding: var(--space-lg);
+    }
+}
+
+/* ============================================
+   32. FORMULAIRE
+   ============================================ */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.form__groupe {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+}
+
+.form__label {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-noir);
+}
+
+.form__champ {
+    font-family: var(--font-principal);
+    font-size: var(--font-size-base);
+    color: var(--color-texte);
+    background-color: var(--color-blanc);
+    border: var(--border-thin) solid rgba(0, 0, 0, 0.15);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm);
+    width: 100%;
+    transition: border-color var(--transition-fast);
+}
+
+.form__champ:focus {
+    outline: none;
+    border-color: var(--color-jaune-fonce);
+}
+
+.form__champ--textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.form__submit {
+    margin-top: var(--space-xs);
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-principal);
+    text-align: center;
+}
+
+.form__piege {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* ============================================
+   33. PAGE MERCI
+   ============================================ */
+
+.merci__icone {
+    width: 64px;
+    height: 64px;
+    background-color: var(--color-jaune);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-noir);
+    margin: 0 auto var(--space-md);
+}
