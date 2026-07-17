@@ -2963,3 +2963,36 @@ img {
     color: var(--color-noir);
     margin: 0 auto var(--space-md);
 }
+/* ============================================
+   34. PAGE SIMULATEUR — Widget Reonic
+   ============================================ */
+
+.simulateur {
+    padding: 0 var(--space-lg) var(--space-2xl);
+    background-color: var(--color-gris-clair);
+}
+
+.simulateur__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--color-blanc);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-sm);
+    min-height: 480px;
+}
+
+.simulateur__note {
+    max-width: 900px;
+    margin: var(--space-md) auto 0;
+    text-align: center;
+    font-size: var(--font-size-xs);
+    color: var(--color-texte);
+    opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    .simulateur__inner {
+        padding: var(--space-md);
+    }
+}
