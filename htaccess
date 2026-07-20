@@ -1,0 +1,59 @@
+# ============================================
+# SWATT Énergie Photovoltaïque — swatt-landes.fr
+# Configuration serveur Apache (Hostinger)
+# ============================================
+
+RewriteEngine On
+
+# --- Forcer HTTPS ---
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# --- Forcer www ---
+RewriteCond %{HTTP_HOST} ^swatt-landes\.fr [NC]
+RewriteRule ^(.*)$ https://www.swatt-landes.fr/$1 [L,R=301]
+
+# ============================================
+# Redirections 301 — anciennes URLs WordPress
+# (remplace les anciens stubs meta-refresh)
+# ============================================
+
+# Équipe
+RewriteRule ^lequipe-swatt/?$ /equipe.html [L,R=301]
+
+# Prestations
+RewriteRule ^nos-prestations/?$ /panneaux-solaires.html [L,R=301]
+RewriteRule ^panneaux-solaires/?$ /panneaux-solaires.html [L,R=301]
+
+# Anciens chantiers individuels -> page réalisations
+RewriteRule ^panneaux-solaires/chantiers/?$ /realisations.html [L,R=301]
+RewriteRule ^panneaux-solaires/chantiers/comment-faire-poser-des-panneaux-solaires-a-parentis-en-born/?$ /realisations.html [L,R=301]
+RewriteRule ^panneaux-solaires/chantiers/installation-de-6-kw-a-parentis-en-born/?$ /realisations.html [L,R=301]
+RewriteRule ^panneaux-solaires/chantiers/installation-dune-centrale-de-36kw-a-parentis-en-born/?$ /realisations.html [L,R=301]
+RewriteRule ^panneaux-solaires/chantiers/pose-dune-centrale-solaire-de-6kw-sur-le-bassin-darcachon/?$ /realisations.html [L,R=301]
+RewriteRule ^panneaux-solaires/chantiers/creation-support-et-pose-des-panneaux-solaire-a-laerodrome-de-biscarrosse/?$ /realisations.html [L,R=301]
+RewriteRule ^panneaux-solaires/chantiers/pose-de-panneaux-solaires-a-biscarrosse-une-solution-durable-pour-votre-maison/?$ /realisations.html [L,R=301]
+RewriteRule ^panneaux-solaires/chantiers-2/chantier-a-pessac-en-girondeinstallation-de-6-kw/?$ /realisations.html [L,R=301]
+
+# Climatisation
+RewriteRule ^climatisation/?$ /climatisation.html [L,R=301]
+
+# Contact
+RewriteRule ^contact/?$ /contact.html [L,R=301]
+
+# FAQ
+RewriteRule ^faq/?$ /faq.html [L,R=301]
+
+# Chauffe-eau thermodynamique
+RewriteRule ^chauffe-eau-thermodynamique/?$ /thermodynamique.html [L,R=301]
+
+# Politique de confidentialité -> mentions légales
+RewriteRule ^politique-de-confidentialite/?$ /mentions-legales.html [L,R=301]
+
+# Simulation
+RewriteRule ^simulation/?$ /simulateur.html [L,R=301]
+
+# ============================================
+# Sécurité de base
+# ============================================
+Options -Indexes
