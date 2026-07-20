@@ -2996,3 +2996,58 @@ img {
         padding: var(--space-md);
     }
 }
+/* ============================================
+   35. PAGE MENTIONS LÉGALES
+   ============================================ */
+ 
+.mentions {
+    padding: var(--space-2xl) var(--space-lg);
+    background-color: var(--color-blanc);
+}
+ 
+.mentions__inner {
+    max-width: 760px;
+    margin: 0 auto;
+}
+ 
+.mentions__bloc {
+    margin-bottom: var(--space-xl);
+}
+ 
+.mentions__bloc:last-child {
+    margin-bottom: 0;
+}
+ 
+.mentions__titre {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-noir);
+    margin-bottom: var(--space-sm);
+}
+ 
+.mentions__bloc p {
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    color: var(--color-texte);
+    margin-bottom: var(--space-sm);
+}
+ 
+.mentions__bloc p:last-child {
+    margin-bottom: 0;
+}
+ 
+.mentions__bloc a {
+    color: var(--color-noir);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+ 
+.mentions__bloc a:hover {
+    color: var(--color-jaune-fonce);
+}
+ 
+@media (max-width: 768px) {
+    .mentions {
+        padding: var(--space-xl) var(--space-sm);
+    }
+}
