@@ -166,7 +166,7 @@
         <div class="hero__overlay"></div>
         <div class="hero__content">
             <h1 class="hero__title">L'énergie solaire,<br>locale et durable</h1>
-            <p class="hero__subtitle">Installation de panneaux photovoltaïques, climatisation gainable et thermodynamique dans les Landes.</p>
+            <p class="hero__subtitle">Installation de panneaux photovoltaïques, climatisation, gainable et thermodynamique dans les Landes.</p>
             <div class="hero__actions">
                 <a href="/simulateur.html" class="btn btn--primary">Simuler mon installation solaire</a>
                 <a href="/contact.html" class="btn btn--outline">Nous contacter</a>
@@ -237,7 +237,7 @@
         <div class="presentation__texte">
             <h2 class="presentation__titre">Une entreprise locale à votre service</h2>
             <p class="presentation__accroche">
-                Basés à Parentis-en-Born, nous intervenons à Biscarrosse et dans tout le nord des Landes et le sud du Bassin d'Arcachon. SWATT accompagne les particuliers dans leur transition énergétique : panneaux photovoltaïques, climatisation gainable et thermodynamique.
+                Basés à Parentis-en-Born, nous intervenons à Biscarrosse dans le nord des Landes et le sud du Bassin d'Arcachon. </br>SWATT accompagne les particuliers dans leur transition énergétique : panneaux photovoltaïques, climatisation gainable et thermodynamique.
             </p>
             <p class="presentation__cbnl">
                 Entreprise issue de la force <a href="https://www.cbnl.fr" target="_blank" rel="noopener noreferrer">CBNL</a>.
@@ -413,7 +413,7 @@
 
         <div class="chiffres__bloc">
             <p class="chiffres__nombre">5/5</p>
-            <p class="chiffres__label">sur 18 avis Google</p>
+            <p class="chiffres__label">sur 21 avis Google</p>
         </div>
 
         <div class="chiffres__bloc">
@@ -430,60 +430,393 @@
             <h2 class="avis__titre">Ce que disent nos clients</h2>
             <div class="avis__note">
                 <div class="avis__etoiles" aria-label="5 étoiles sur 5">★★★★★</div>
-                <p class="avis__note-texte">5/5 — 18 avis Google</p>
+                <p class="avis__note-texte">5/5 — 21 avis Google</p>
             </div>
         </div>
 
         <div class="avis__carousel">
-
-            <button class="avis__fleche avis__fleche--gauche" aria-label="Avis précédent">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="15 18 9 12 15 6"/>
-                </svg>
-            </button>
-
             <div class="avis__overflow">
-                <div class="avis__track">
-
+                <div class="avis__track" id="avis-track">
                     <article class="avis__carte">
-                        <div class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <blockquote class="avis__texte">
-                            Très satisfaite de la prestation du devis à la réalisation. Équipe disponible, sympa, compétente et à l'écoute. Merci pour le travail accompli et le professionnalisme.
-                        </blockquote>
-                        <p class="avis__auteur">Myriam Nougarède</p>
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Je recommande vivement l'entreprise Swatt pour l'installation d'une climatisation dans mon appartement (au premier étage). L'équipe a fait preuve d'un grand professionnalisme et d'une réelle minutie tout au long de l'intervention. Un travail soigné du début à la fin, je recommande sans hésiter !</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#B5476B;" aria-hidden="true">L</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Louna Deperrois</p>
+                                <p class="avis__date">Juillet 2026</p>
+                            </div>
+                        </footer>
                     </article>
-
                     <article class="avis__carte">
-                        <div class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <blockquote class="avis__texte">
-                            Très satisfaite de la prestation de l'entreprise SWATT. Monsieur Archimbaud est très à l'écoute et son équipe très professionnelle. Je recommande vivement.
-                        </blockquote>
-                        <p class="avis__auteur">Nathalie Lopes</p>
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Très satisfait de mon installation de climatisation. Devis rapide, équipe professionnelle et climatisation de très bonne qualité, je recommande !</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#2F5D8A;" aria-hidden="true">L</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Léo Séry</p>
+                                <p class="avis__date">Juillet 2026</p>
+                            </div>
+                        </footer>
                     </article>
-
                     <article class="avis__carte">
-                        <div class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <blockquote class="avis__texte">
-                            Très contente de la prestation. Du devis à la réalisation, interlocuteur à l'écoute de mes attentes. Aucune prise de tête avec les démarches administratives. Équipe efficace, rapide et très professionnelle. Propreté du chantier. Je recommande sans aucune hésitation cette entreprise. Merci ☺️
-                        </blockquote>
-                        <p class="avis__auteur">Virginie Marty-Vignes</p>
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Des grands professionels qualite ,service et travail de tres grande precision je vous recommande cette entreprise</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#3C7A4E;" aria-hidden="true">P</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Patrick Archimbaud</p>
+                                <p class="avis__date">Juillet 2026</p>
+                            </div>
+                        </footer>
                     </article>
-
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Très satisfaite de la prestation du devis à la réalisation. Equipe disponible, sympa, compétente et à l'écoute. Merci pour le travail accompli et le professionnalisme.</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#1E8E7E;" aria-hidden="true">M</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Myriam Nougarède</p>
+                                <p class="avis__date">Avril 2026</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Très satisfaite de la prestation de l'entreprise SWATT. Monsieur Archimbaud est très à l'écoute et son équipe très professionnelle. Je recommande vivement.</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#C2703D;" aria-hidden="true">N</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Nathalie Lopes</p>
+                                <p class="avis__date">Mars 2026</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Très contente de la prestation. Du devis à la réalisation, interlocuteur à l'écoute de mes attentes. Aucune prise de tête avec les démarches administratives. Équipe efficace, rapide et très professionnelle. Propreté du chantier. Je recommande sans aucune hésitation cette entreprise. Merci ☺️</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#7B54B3;" aria-hidden="true">V</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Virginie Marty-Vignes</p>
+                                <p class="avis__date">Février 2026</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Super prestation faite avec professionnalisme. Très sympa et connaissant très bien le métier et le matériel posé. Les conseils sont pro. Je recommande fortement SWATT et vous pouvez y aller les yeux fermés. Merci a Romain &amp; toute son équipe</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#55606E;" aria-hidden="true">D</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Denis</p>
+                                <p class="avis__date">Décembre 2025</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Excellente entreprise. Je suis entièrement satisfait de mon installation de panneaux photovoltaiques + batterie. Notre interlocuteur (Romain) est très professionnel, a l'écoute et très claire dans les explications et recommandations. Le suivi du projet a été rigoureux et Swatt réalise toutes les démarches administratives. L'installation est impeccable, proprement réalisée par des professionnels sympathiques et compétents. Je recommande vivement cette entreprise à toute personne souhaitant se lancer dans le solaire en toute confiance.</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#A13D4C;" aria-hidden="true">J</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">JMichel</p>
+                                <p class="avis__date">Novembre 2025</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Personnel qualifié et agréable, que ce soit les commerciaux ou les employés. Nous avons apprécié la prise en charge administrative totale, franchement c'est un plus. La pose a été réalisée en une petite journée et le fait de savoir que l'entreprise Swatt supervise l'application est vraiment rassurant. Nous recommandons vivement cette entreprise. 👍</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#8A6D1F;" aria-hidden="true">S</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Sophie</p>
+                                <p class="avis__date">Juillet 2025</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Excellent travail, très satisfait de la prestation, équipe au top.</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#4A4E9E;" aria-hidden="true">P</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Philippe Meurisse</p>
+                                <p class="avis__date">Juillet 2025</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Excellente prestation sur tous les plans, personnes à l'écoute du client, à contacter les yeux fermés !!</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#227C86;" aria-hidden="true">S</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Sébastien Lonné</p>
+                                <p class="avis__date">Juillet 2025</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Excellente prestation, professionnels et sympathiques. A recommander vivement.</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#6B7A3A;" aria-hidden="true">Z</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Zack Prieur</p>
+                                <p class="avis__date">Mai 2025</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Le travail est très soigné, une équipe à l'écoute du client et surtout avec de bons conseils. Je suis très contente et recommande très fortement cette entreprise. En plus les prix sont vraiment très corrects. J'avais fait venir 5 ou 6 entreprises pour un devis et ils étaient tous 2 à 3000€ au dessus. En plus on ne vous force pas à signer après la première visite. Swatt vous laisse le temps de réfléchir. Ils sont très professionnel.</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#9C5A2E;" aria-hidden="true">B</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Barbara LR</p>
+                                <p class="avis__date">Mars 2025</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Du devis à la mise en service, c'est carré. Equipe sympathique, efficace et sérieuse. A recommander.</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#5C4A72;" aria-hidden="true">S</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Stef Ducamp</p>
+                                <p class="avis__date">Mars 2025</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Après des explications claires et détaillés vous permettant de vous éclairer au mieux dans votre choix, vous serez accompagné de la même manière tout le long du parcours. Un équipe d'installation précautionneux, efficace, très sympathique qui répond aux dernières questions que vous pouvez avoir. Du commercial à l'équipe technique c'est un sans faute pour l'équipe de SWATT, à qui vous pouvez confier la pose de vos panneaux en toute confiance et sécurité.</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#2E7D5B;" aria-hidden="true">M</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Mélissa Cnst</p>
+                                <p class="avis__date">Février 2025</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Que dire de SWATT ? Rien. Installation, contact suivi tout est ok. De très bons professionnels. Merci à toute l'équipe</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#8C4A3E;" aria-hidden="true">C</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Chantal</p>
+                                <p class="avis__date">Novembre 2024</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Proposition sérieuse, travail bien fini et soigné par des artisans qui aiment leur métier et le font très bien. Je certifie être un vrai client, je recommande vivement swatt</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#3A5A6E;" aria-hidden="true">F</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">FX Roturier</p>
+                                <p class="avis__date">Juin 2024</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">En faisant appel à l'entreprise SWATT pour mes panneaux, j'ai été très agréablement satisfait par l'implication et le professionnalisme de cette boîte. Je recommande vivement cette entreprise.</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#7A4A8A;" aria-hidden="true">E</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Eloi Bourgoint</p>
+                                <p class="avis__date">Avril 2024</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Encore merci à cette entreprise très professionnelle. Super rapport qualité/prix. Très bonne équipe avec une étude de projet complète (mention spéciale à Romain et Steeve). Ils sont vraiment à l'écoute. Je la recommande chaudement. N'hésitez pas.</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#4E6B3A;" aria-hidden="true">Y</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Yannick Loubère</p>
+                                <p class="avis__date">Avril 2024</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Après une longue réflexion pour la pose de panneaux solaires j'ai fait appel à cette Entreprise SWATT. Des commerciaux qui connaissent parfaitement le sujet et qui répondent à toutes les questions très techniques avec un chiffrage au plus près de la réalité. C'était mes attentes. Vraiment très contente de mon choix.</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#B0603F;" aria-hidden="true">C</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Clara Girardi</p>
+                                <p class="avis__date">Avril 2024</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="avis__carte">
+                        <div class="avis__carte-haut">
+                            <div class="avis__etoiles-groupe">
+                                <span class="avis__etoiles-carte" aria-label="5 étoiles sur 5">★★★★★</span>
+                                <svg class="avis__verifie" width="16" height="16" viewBox="0 0 24 24" aria-label="Avis vérifié" role="img"><circle cx="12" cy="12" r="12" fill="#4285F4"/><path d="M17 9l-5.5 5.5L8 11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <img class="avis__google" src="/assets/google-logo.svg" alt="Avis Google" width="22" height="22">
+                        </div>
+                        <blockquote class="avis__texte">Je recommande vivement Swatt pour la pose de panneaux solaires, une équipe vraiment à l'écoute qui c'est répondre à toutes les questions.</blockquote>
+                        <button class="avis__lire-plus" type="button">Lire la suite</button>
+                        <footer class="avis__pied">
+                            <span class="avis__avatar" style="background-color:#5A5A9C;" aria-hidden="true">Y</span>
+                            <div class="avis__auteur-infos">
+                                <p class="avis__auteur">Yann Bordier</p>
+                                <p class="avis__date">Avril 2024</p>
+                            </div>
+                        </footer>
+                    </article>
                 </div>
             </div>
-
-            <button class="avis__fleche avis__fleche--droite" aria-label="Avis suivant">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="9 18 15 12 9 6"/>
-                </svg>
-            </button>
-
-            <div class="avis__points" aria-label="Navigation carousel">
-                <button class="avis__point avis__point--actif" aria-label="Avis 1"></button>
-                <button class="avis__point" aria-label="Avis 2"></button>
-                <button class="avis__point" aria-label="Avis 3"></button>
-            </div>
-
         </div>
 
     </div>

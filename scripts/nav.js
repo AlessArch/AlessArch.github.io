@@ -24,87 +24,71 @@ dropdownLink.addEventListener('click', (e) => {
 const yearEl = document.getElementById('footer-year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// --- Carousel avis ---
-const track = document.querySelector('.avis__track');
-const overflowEl = document.querySelector('.avis__overflow');
-const points = document.querySelectorAll('.avis__point');
+// --- Duplique les avis pour la boucle infinie du marquee ---
+const avisTrack = document.getElementById('avis-track');
+if (avisTrack) {
+    const clone = avisTrack.innerHTML;
+    avisTrack.insertAdjacentHTML('beforeend', clone);
+    // Les cartes dupliquées ne doivent pas être lues deux fois par un lecteur d'écran
+    Array.from(avisTrack.children)
+        .slice(avisTrack.children.length / 2)
+        .forEach(carte => carte.setAttribute('aria-hidden', 'true'));
+}
 
-if (track) {
-    let courant = 0;
-    let timer;
+// --- "Lire la suite" pour les avis tronqués ---
+document.querySelectorAll('.avis__texte').forEach(texte => {
+    const bouton = texte.nextElementSibling;
+    if (!bouton || !bouton.classList.contains('avis__lire-plus')) return;
 
-    function allerA(index) {
-        courant = index;
-        track.style.transform = `translateX(-${courant * 100}%)`;
-        points.forEach((p, i) => {
-            p.classList.toggle('avis__point--actif', i === courant);
+    if (texte.scrollHeight > texte.clientHeight + 2) {
+        bouton.style.display = 'block';
+        bouton.addEventListener('click', () => {
+            const ouvert = texte.classList.toggle('avis__texte--etendu');
+            bouton.textContent = ouvert ? 'Cacher' : 'Lire la suite';
         });
     }
+});
 
-    function suivant() {
-        allerA((courant + 1) % points.length);
-    }
+// --- Défilement auto + interaction manuelle (souris/doigt) ---
+const avisOverflow = document.querySelector('.avis__overflow');
+const reduireMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function demarrerTimer() {
-        timer = setInterval(suivant, 5000);
-    }
+if (avisOverflow && !reduireMotion) {
+    let enPause = false;
+    let enGlissement = false;
+    let departX = 0;
+    let scrollDepart = 0;
 
-    function arreterTimer() {
-        clearInterval(timer);
-    }
-
-    // Clic sur les points
-    points.forEach((point, i) => {
-        point.addEventListener('click', () => {
-            arreterTimer();
-            allerA(i);
-            demarrerTimer();
-        });
-    });
-
-    // Pause au survol (desktop uniquement — mouseenter ne déclenche pas sur tactile)
-    track.addEventListener('mouseenter', arreterTimer);
-    track.addEventListener('mouseleave', demarrerTimer);
-
-    // Flèches
-    const flecheGauche = document.querySelector('.avis__fleche--gauche');
-    const flecheDroite = document.querySelector('.avis__fleche--droite');
-
-    flecheGauche.addEventListener('click', () => {
-        arreterTimer();
-        allerA((courant - 1 + points.length) % points.length);
-        demarrerTimer();
-    });
-
-    flecheDroite.addEventListener('click', () => {
-        arreterTimer();
-        suivant();
-        demarrerTimer();
-    });
-
-    // Swipe mobile — écoute sur overflowEl
-    let touchDepart = null;
-
-    overflowEl.addEventListener('touchstart', (e) => {
-        touchDepart = e.touches[0].clientX;
-    }, { passive: true });
-
-    overflowEl.addEventListener('touchend', (e) => {
-        if (touchDepart === null) return;
-        const touchFin = e.changedTouches[0].clientX;
-        const diff = touchDepart - touchFin;
-
-        if (Math.abs(diff) > 50) {
-            arreterTimer();
-            if (diff > 0) {
-                suivant();
-            } else {
-                allerA((courant - 1 + points.length) % points.length);
+    function boucler() {
+        if (!enPause && !enGlissement) {
+            avisOverflow.scrollLeft += 0.5;
+            if (avisOverflow.scrollLeft >= avisOverflow.scrollWidth / 2) {
+                avisOverflow.scrollLeft -= avisOverflow.scrollWidth / 2;
             }
-            demarrerTimer();
         }
-        touchDepart = null;
-    }, { passive: true });
+        requestAnimationFrame(boucler);
+    }
 
-    demarrerTimer();
+    avisOverflow.addEventListener('mouseenter', () => enPause = true);
+    avisOverflow.addEventListener('mouseleave', () => enPause = false);
+
+    avisOverflow.addEventListener('pointerdown', (e) => {
+        enGlissement = true;
+        avisOverflow.style.cursor = 'grabbing';
+        departX = e.pageX;
+        scrollDepart = avisOverflow.scrollLeft;
+    });
+
+    window.addEventListener('pointermove', (e) => {
+        if (!enGlissement) return;
+        avisOverflow.scrollLeft = scrollDepart - (e.pageX - departX);
+    });
+
+    window.addEventListener('pointerup', () => {
+        if (!enGlissement) return;
+        enGlissement = false;
+        avisOverflow.style.cursor = 'grab';
+    });
+
+    requestAnimationFrame(boucler);
 }

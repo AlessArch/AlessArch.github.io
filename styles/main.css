@@ -617,18 +617,21 @@ img {
     font-weight: 700;
     color: var(--color-noir);
     margin-bottom: var(--space-md);
+    text-align: center;
 }
 
 .presentation__accroche {
     color: var(--color-texte);
     line-height: 1.7;
     margin-bottom: var(--space-sm);
+    text-align: center;
 }
 
 .presentation__cbnl {
     font-size: var(--font-size-sm);
     color: var(--color-texte);
     opacity: 0.80;
+    text-align: center;
 }
 
 .presentation__cbnl a {
@@ -844,27 +847,141 @@ img {
     opacity: 0.75;
 }
 
+.avis__etoiles-carte {
+    color: var(--color-jaune);
+    font-size: var(--font-size-lg);
+    letter-spacing: 2px;
+}
+
+.avis__texte {
+    font-size: var(--font-size-sm);
+    color: var(--color-texte);
+    line-height: 1.7;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.avis__texte--etendu {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+}
+
+.avis__lire-plus {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--color-texte);
+    opacity: 0.55;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.avis__auteur {
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    color: var(--color-noir);
+}
+
+.avis__carte-haut {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.avis__etoiles-groupe {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.avis__verifie {
+    flex-shrink: 0;
+}
+
+.avis__google {
+    flex-shrink: 0;
+}
+
+.avis__pied {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.avis__avatar {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-blanc);
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    text-transform: uppercase;
+}
+
+.avis__date {
+    font-size: var(--font-size-sm);
+    color: var(--color-texte);
+    opacity: 0.6;
+}
+
 .avis__carousel {
     position: relative;
-    overflow: visible;
-    padding-bottom: var(--space-lg);
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 0 var(--space-lg);
+    box-sizing: border-box;
 }
 
 .avis__overflow {
-    overflow: hidden;
-    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    overflow-y: hidden;
     width: 100%;
+    cursor: grab;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    mask-image: linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent);
+}
+
+.avis__overflow::-webkit-scrollbar {
+    display: none;
 }
 
 .avis__track {
     display: flex;
-    transition: transform var(--transition-base);
-    width: 100%;
+    gap: var(--space-md);
+    width: max-content;
+    align-items: flex-start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .avis__track {
+        animation: none;
+    }
+    .avis__overflow {
+        overflow-x: auto;
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
 }
 
 .avis__carte {
-    min-width: 100%;
-    width: 100%;
+    width: 320px;
+    min-width: 320px;
+    min-height: 300px;
+    flex-shrink: 0;
     padding: var(--space-xl);
     background-color: var(--color-gris-clair);
     border-radius: var(--radius-lg);
@@ -874,92 +991,51 @@ img {
     box-sizing: border-box;
 }
 
-.avis__etoiles-carte {
-    color: var(--color-jaune);
-    font-size: var(--font-size-lg);
-    letter-spacing: 2px;
-}
-
-.avis__texte {
-    font-size: var(--font-size-base);
-    color: var(--color-texte);
-    line-height: 1.8;
-    font-style: italic;
-    flex: 1;
-}
-
-.avis__auteur {
-    font-weight: 700;
-    font-size: var(--font-size-base);
-    color: var(--color-noir);
-}
-
-.avis__points {
+.avis__carte-haut {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.avis__etoiles-groupe {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.avis__verifie {
+    flex-shrink: 0;
+}
+
+.avis__google {
+    flex-shrink: 0;
+}
+
+.avis__pied {
+    display: flex;
+    align-items: center;
     gap: var(--space-sm);
-    margin-top: var(--space-lg);
+    margin-top: auto;
 }
 
-.avis__point {
-    width: 10px;
-    height: 10px;
+.avis__avatar {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
     border-radius: var(--radius-full);
-    border: none;
-    background-color: var(--color-gris-clair);
-    cursor: pointer;
-    transition: background-color var(--transition-fast), transform var(--transition-fast);
-    padding: 0;
-}
-
-.avis__point--actif {
-    background-color: var(--color-jaune);
-    transform: scale(1.3);
-}
-.avis__fleche {
-    position: absolute;
-    top: 0;
-    bottom: var(--space-2xl); /* exclut la zone des points */
-    margin: auto;
-    height: 40px;
-    background-color: var(--color-blanc);
-    border: 1.5px solid rgba(0, 0, 0, 0.1);
-    border-radius: var(--radius-full);
-    width: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    z-index: 2;
-    color: var(--color-noir);
-    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+    color: var(--color-blanc);
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    text-transform: uppercase;
 }
 
-.avis__fleche:hover {
-    background-color: var(--color-jaune);
-    border-color: var(--color-jaune);
-}
-
-.avis__fleche--gauche {
-    left: -20px;
-}
-
-.avis__fleche--droite {
-    right: -20px;
-}
-
-/* Masquer les flèches sur mobile — trop étroit */
-@media (max-width: 768px) {
-    .avis__fleche {
-        display: none;
-    }
-}
-
-/* Avis mobile */
-@media (max-width: 768px) {
-    .avis__carte {
-        padding: var(--space-lg) var(--space-md);
-    }
+.avis__date {
+    font-size: var(--font-size-sm);
+    color: var(--color-texte);
+    opacity: 0.6;
 }
 /* ============================================
    12. RÉASSURANCE
@@ -1194,7 +1270,7 @@ img {
 .faq__question::-webkit-details-marker { display: none; }
 
 .faq__question:hover {
-    background-color: var(--color-gris-clair);
+    background-color: rgba(248, 218, 73, 0.08);
 }
 
 .faq__icone {
@@ -1208,11 +1284,11 @@ img {
 }
 
 .faq__item[open] .faq__question {
-    background-color: var(--color-gris-clair);
+    background-color: rgba(248, 218, 73, 0.12);
 }
 
 .faq__reponse {
-    padding: 0 var(--space-md) var(--space-md);
+    padding: var(--space-md);
     font-size: var(--font-size-sm);
     color: var(--color-texte);
     line-height: 1.8;
