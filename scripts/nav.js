@@ -35,7 +35,31 @@ if (avisTrack) {
         .forEach(carte => carte.setAttribute('aria-hidden', 'true'));
 }
 
-// --- "Lire la suite" pour les avis tronqués ---
+// --- "Lire la suite" : ouvre l'avis complet dans une fenêtre ---
+const avisModal = document.getElementById('avis-modal');
+const avisModalTexte = document.getElementById('avis-modal-texte');
+const avisModalNom = document.getElementById('avis-modal-nom');
+const avisModalDate = document.getElementById('avis-modal-date');
+const avisModalAvatar = document.getElementById('avis-modal-avatar');
+let avisDeclencheur = null;
+
+function ouvrirAvisModal(carte) {
+    avisModalTexte.textContent = carte.querySelector('.avis__texte').textContent.trim();
+    avisModalNom.textContent = carte.querySelector('.avis__auteur').textContent.trim();
+    avisModalDate.textContent = carte.querySelector('.avis__date').textContent.trim();
+
+    const avatar = carte.querySelector('.avis__avatar');
+    avisModalAvatar.textContent = avatar.textContent;
+    avisModalAvatar.style.backgroundColor = avatar.style.backgroundColor;
+
+    avisModal.hidden = false;
+}
+
+function fermerAvisModal() {
+    avisModal.hidden = true;
+    if (avisDeclencheur) avisDeclencheur.focus();
+}
+
 document.querySelectorAll('.avis__texte').forEach(texte => {
     const bouton = texte.nextElementSibling;
     if (!bouton || !bouton.classList.contains('avis__lire-plus')) return;
@@ -43,10 +67,18 @@ document.querySelectorAll('.avis__texte').forEach(texte => {
     if (texte.scrollHeight > texte.clientHeight + 2) {
         bouton.style.display = 'block';
         bouton.addEventListener('click', () => {
-            const ouvert = texte.classList.toggle('avis__texte--etendu');
-            bouton.textContent = ouvert ? 'Cacher' : 'Lire la suite';
+            avisDeclencheur = bouton;
+            ouvrirAvisModal(bouton.closest('.avis__carte'));
         });
     }
+});
+
+document.querySelectorAll('[data-avis-modal-fermer]').forEach(el => {
+    el.addEventListener('click', fermerAvisModal);
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !avisModal.hidden) fermerAvisModal();
 });
 
 // --- Défilement auto + interaction manuelle (souris/doigt) ---
@@ -54,26 +86,38 @@ const avisOverflow = document.querySelector('.avis__overflow');
 const reduireMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (avisOverflow && !reduireMotion) {
-    let enPause = false;
+    let position = avisOverflow.scrollLeft;
+    let pauseJusqua = 0;
+    let enSurvol = false;
     let enGlissement = false;
     let departX = 0;
     let scrollDepart = 0;
+    let aBouge = false;
+
+    function pauserTemporairement(duree = 2000) {
+        pauseJusqua = Date.now() + duree;
+    }
 
     function boucler() {
-        if (!enPause && !enGlissement) {
-            avisOverflow.scrollLeft += 0.5;
-            if (avisOverflow.scrollLeft >= avisOverflow.scrollWidth / 2) {
-                avisOverflow.scrollLeft -= avisOverflow.scrollWidth / 2;
-            }
+        if (!enGlissement && !enSurvol && Date.now() > pauseJusqua) {
+            position += 0.5;
+            const demiLargeur = avisOverflow.scrollWidth / 2;
+            if (position >= demiLargeur) position -= demiLargeur;
+            avisOverflow.scrollLeft = position;
+        } else {
+            position = avisOverflow.scrollLeft;
         }
         requestAnimationFrame(boucler);
     }
 
-    avisOverflow.addEventListener('mouseenter', () => enPause = true);
-    avisOverflow.addEventListener('mouseleave', () => enPause = false);
+    avisOverflow.addEventListener('mouseenter', () => enSurvol = true);
+    avisOverflow.addEventListener('mouseleave', () => enSurvol = false);
+
+    avisOverflow.addEventListener('wheel', () => pauserTemporairement(), { passive: true });
 
     avisOverflow.addEventListener('pointerdown', (e) => {
         enGlissement = true;
+        aBouge = false;
         avisOverflow.style.cursor = 'grabbing';
         departX = e.pageX;
         scrollDepart = avisOverflow.scrollLeft;
@@ -81,6 +125,7 @@ if (avisOverflow && !reduireMotion) {
 
     window.addEventListener('pointermove', (e) => {
         if (!enGlissement) return;
+        aBouge = true;
         avisOverflow.scrollLeft = scrollDepart - (e.pageX - departX);
     });
 
@@ -88,6 +133,8 @@ if (avisOverflow && !reduireMotion) {
         if (!enGlissement) return;
         enGlissement = false;
         avisOverflow.style.cursor = 'grab';
+        if (aBouge) pauserTemporairement();
+        position = avisOverflow.scrollLeft;
     });
 
     requestAnimationFrame(boucler);
