@@ -1,3 +1,58 @@
+// --- Mode sombre ---
+// Cycle fixe sur le bouton : Auto → Dark → Light → Auto → ...
+//   - Auto (rien dans localStorage) : suit prefers-color-scheme, géré en CSS
+//   - Dark / Light : thème forcé, mémorisé et prioritaire sur le système
+// La lecture initiale de localStorage et l'application avant peinture se font
+// via un petit script inline dans le <head> de chaque page (voir build.py).
+const THEME_KEY = 'swatt-theme';
+const themeToggle = document.querySelector('.nav__theme-toggle');
+const CYCLE_THEME = ['auto', 'dark', 'light'];
+
+function themeEnregistre() {
+    const valeur = localStorage.getItem(THEME_KEY);
+    return (valeur === 'dark' || valeur === 'light') ? valeur : 'auto';
+}
+
+function themeSysteme() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function themeEffectif() {
+    const etat = themeEnregistre();
+    return etat === 'auto' ? themeSysteme() : etat;
+}
+
+function majBouton() {
+    if (!themeToggle) return;
+    const etat = themeEnregistre();
+    themeToggle.classList.toggle('nav__theme-toggle--auto', etat === 'auto');
+    const libelles = {
+        auto:  `Thème automatique (actuellement ${themeEffectif() === 'dark' ? 'sombre' : 'clair'}), cliquer pour changer`,
+        dark:  'Thème sombre forcé, cliquer pour changer',
+        light: 'Thème clair forcé, cliquer pour changer',
+    };
+    themeToggle.setAttribute('aria-label', libelles[etat]);
+}
+
+if (themeToggle) {
+    majBouton();
+
+    themeToggle.addEventListener('click', () => {
+        const actuel = themeEnregistre();
+        const prochain = CYCLE_THEME[(CYCLE_THEME.indexOf(actuel) + 1) % CYCLE_THEME.length];
+
+        if (prochain === 'auto') {
+            localStorage.removeItem(THEME_KEY);
+            document.documentElement.removeAttribute('data-theme');
+        } else {
+            localStorage.setItem(THEME_KEY, prochain);
+            document.documentElement.setAttribute('data-theme', prochain);
+        }
+
+        majBouton();
+    });
+}
+
 // --- Menu hamburger ---
 const hamburger = document.querySelector('.nav__hamburger');
 const list = document.querySelector('.nav__list');

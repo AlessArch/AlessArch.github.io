@@ -11,6 +11,13 @@
     --color-texte:       #2C2C2C;
     --color-cbnl:        #F7630C;
 
+    /* Couleurs sémantiques — changent selon le thème (voir mode sombre plus bas).
+       --color-noir et --color-blanc restent fixes : ils habillent le header/footer/nav
+       et les sections toujours sombres du site (hero, CTA final, matériel...), qui ne
+       changent pas entre thème clair et sombre. */
+    --color-surface: var(--color-blanc);
+    --color-titre:   var(--color-noir);
+
     /* Couleurs dérivées (transparences) */
     --color-border-soft:    rgba(255, 255, 255, 0.1);
     --color-overlay-light:  rgba(255, 255, 255, 0.05);
@@ -96,7 +103,7 @@ html {
 body {
     font-family: var(--font-principal);
     color: var(--color-texte);
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
     line-height: 1.6;
     min-height: 100dvh;
 }
@@ -600,7 +607,7 @@ img {
 
 .presentation {
     padding: var(--space-2xl) var(--space-lg);
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
 }
 
 .presentation__inner {
@@ -615,7 +622,7 @@ img {
 .presentation__titre {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-md);
     text-align: center;
 }
@@ -665,13 +672,13 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
 
 .presentation__point-titre {
     font-size: var(--font-size-base);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-xs);
 }
 
@@ -709,7 +716,7 @@ img {
 .prestations__titre {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-sm);
 }
 
@@ -728,7 +735,7 @@ img {
 }
 
 .carte-prestation {
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
     border-radius: var(--radius-lg);
     overflow: hidden;
     text-decoration: none;
@@ -765,7 +772,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
 
 .carte-prestation__contenu {
@@ -779,7 +786,7 @@ img {
 .carte-prestation__titre {
     font-size: var(--font-size-md);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
 
 .carte-prestation__texte {
@@ -808,7 +815,7 @@ img {
 
 .avis {
     padding: var(--space-2xl) var(--space-lg);
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
 }
 
 .avis__inner {
@@ -824,7 +831,7 @@ img {
 .avis__titre {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-sm);
 }
 
@@ -886,7 +893,7 @@ img {
 
 .avis-modal__panneau {
     position: relative;
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
     max-width: 480px;
@@ -945,7 +952,7 @@ img {
 
 .avis-modal__nom {
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
 
 .avis-modal__date {
@@ -971,7 +978,7 @@ img {
 .avis__auteur {
     font-weight: 700;
     font-size: var(--font-size-base);
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
 
 .avis__carte-haut {
@@ -1179,7 +1186,7 @@ img {
 .pourquoi__titre {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-sm);
 }
 
@@ -1195,7 +1202,7 @@ img {
 }
 
 .pourquoi__carte {
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
     border-radius: var(--radius-lg);
     padding: var(--space-xl) var(--space-md);
     text-align: center;
@@ -1213,14 +1220,14 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-noir);
+    color: var(--color-titre);
     flex-shrink: 0;
 }
 
 .pourquoi__carte-titre {
     font-size: var(--font-size-md);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
 
 .pourquoi__carte-texte {
@@ -1260,14 +1267,14 @@ img {
 .chiffres__nombre {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     line-height: 1.1;
     margin-bottom: var(--space-xs);
 }
 
 .chiffres__label {
     font-size: var(--font-size-sm);
-    color: var(--color-noir);
+    color: var(--color-titre);
     opacity: 0.7;
     line-height: 1.4;
 }
@@ -1301,7 +1308,7 @@ img {
 .faq__titre {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-sm);
 }
 
@@ -1317,7 +1324,7 @@ img {
 }
 
 .faq__item {
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
     border-radius: var(--radius-md);
     overflow: hidden;
 }
@@ -1330,7 +1337,7 @@ img {
     padding: var(--space-md);
     font-size: var(--font-size-base);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     cursor: pointer;
     list-style: none;
     transition: background-color var(--transition-fast);
@@ -1372,7 +1379,7 @@ img {
 .faq__lien {
     font-size: var(--font-size-base);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     text-decoration: none;
     border-bottom: 2px solid var(--color-jaune);
     padding-bottom: 2px;
@@ -1618,7 +1625,7 @@ img {
 .membre__prenom {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
 
 .membre__role {
@@ -1647,7 +1654,7 @@ img {
 .membre__tag {
     font-size: var(--font-size-xs);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     background-color: var(--color-jaune);
     padding: var(--space-2xs) var(--space-sm);
     border-radius: var(--radius-full);
@@ -1680,7 +1687,7 @@ img {
 
 .faq-page {
     padding: var(--space-2xl) var(--space-lg);
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
 }
 
 .faq-page__inner {
@@ -1710,13 +1717,13 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
 
 .faq-page__categorie-titre {
     font-size: clamp(1.25rem, 2.5vw, 1.75rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
 
 /* Liste d'étapes dans une réponse FAQ */
@@ -1760,11 +1767,11 @@ img {
 .filtre {
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
-    border: 1.5px solid var(--color-noir);
+    border: 1.5px solid var(--color-titre);
     background: none;
     font-size: var(--font-size-sm);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     cursor: pointer;
     transition: background-color var(--transition-fast), color var(--transition-fast);
     font-family: var(--font-principal);
@@ -1796,7 +1803,7 @@ img {
 
 /* Carte chantier */
 .chantier {
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
     border-radius: var(--radius-lg);
     overflow: hidden;
     display: flex;
@@ -1881,7 +1888,7 @@ img {
     gap: 4px;
     font-size: var(--font-size-sm);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
 
 .chantier__specs {
@@ -1893,7 +1900,7 @@ img {
 .chantier__titre {
     font-size: var(--font-size-md);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     line-height: 1.35;
 }
 
@@ -1908,7 +1915,7 @@ img {
     display: inline-block;
     font-size: var(--font-size-sm);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     text-decoration: none;
     border-bottom: 2px solid var(--color-jaune);
     padding-bottom: 2px;
@@ -1954,7 +1961,7 @@ img {
 
 .prestation-intro {
     padding: var(--space-2xl) var(--space-lg);
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
 }
 
 .prestation-intro__inner {
@@ -1965,7 +1972,7 @@ img {
 .prestation-intro__titre {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-lg);
     text-align: center;
 }
@@ -2004,7 +2011,7 @@ img {
 .benefices__titre {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-sm);
 }
 
@@ -2020,7 +2027,7 @@ img {
 }
 
 .benefice__carte {
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
     border-radius: var(--radius-lg);
     padding: var(--space-xl) var(--space-md);
     display: flex;
@@ -2038,14 +2045,14 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-noir);
+    color: var(--color-titre);
     flex-shrink: 0;
 }
 
 .benefice__titre {
     font-size: var(--font-size-md);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
 
 .benefice__texte {
@@ -2066,7 +2073,7 @@ img {
 
 .pourquoi-swatt {
     padding: var(--space-2xl) var(--space-lg);
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
 }
 
 .pourquoi-swatt__inner {
@@ -2081,7 +2088,7 @@ img {
 .pourquoi-swatt__titre {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     text-align: center;
 }
 
@@ -2106,14 +2113,14 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-top: 4px;
 }
 
 .pourquoi-swatt__item-titre {
     font-size: var(--font-size-md);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-xs);
 }
 
@@ -2222,7 +2229,7 @@ img {
 .formules__titre {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-sm);
 }
 
@@ -2243,7 +2250,7 @@ img {
 }
 
 .formule__carte {
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
     border-radius: var(--radius-lg);
     padding: var(--space-xl) var(--space-md);
     display: flex;
@@ -2286,7 +2293,7 @@ img {
 .formule__puissance {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
 
 .formule__prix {
@@ -2298,7 +2305,7 @@ img {
 
 .formule__prix strong {
     font-size: var(--font-size-lg);
-    color: var(--color-noir);
+    color: var(--color-titre);
     opacity: 1;
 }
 
@@ -2351,7 +2358,7 @@ img {
 
 .process {
     padding: var(--space-2xl) var(--space-lg);
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
 }
 
 .process__inner {
@@ -2362,7 +2369,7 @@ img {
 .process__titre {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     text-align: center;
     margin-bottom: var(--space-sm);
 }
@@ -2398,14 +2405,14 @@ img {
     justify-content: center;
     font-weight: 700;
     font-size: var(--font-size-md);
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-top: 2px;
 }
 
 .process__etape-titre {
     font-size: var(--font-size-base);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-xs);
 }
 
@@ -2432,7 +2439,7 @@ img {
 .chantier-vitrine__titre {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     text-align: center;
     margin-bottom: var(--space-xl);
 }
@@ -2442,7 +2449,7 @@ img {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-xl);
     align-items: center;
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
     border-radius: var(--radius-lg);
     overflow: hidden;
 }
@@ -2464,7 +2471,7 @@ img {
 .chantier-vitrine__sous-titre {
     font-size: var(--font-size-lg);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
 
 .chantier-vitrine__texte {
@@ -2477,7 +2484,7 @@ img {
     display: inline-block;
     font-size: var(--font-size-sm);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     text-decoration: none;
     border-bottom: 2px solid var(--color-jaune);
     padding-bottom: 2px;
@@ -2517,7 +2524,7 @@ img {
 
 .chantiers-lies {
     padding: var(--space-2xl) var(--space-lg);
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
 }
 
 .chantiers-lies__inner {
@@ -2528,7 +2535,7 @@ img {
 .chantiers-lies__titre {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     text-align: center;
     margin-bottom: var(--space-xl);
 }
@@ -2578,7 +2585,7 @@ img {
 /* --- Introduction --- */
 .zone-intro {
     padding: var(--space-2xl) var(--space-lg) var(--space-xl);
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
 }
  
 .zone-intro__inner {
@@ -2653,7 +2660,7 @@ img {
 .zone-secteur__titre {
     font-size: clamp(1.375rem, 2.5vw, 1.75rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-xs);
 }
  
@@ -2673,7 +2680,7 @@ img {
  
 /* --- Carte commune --- */
 .commune {
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
     border-radius: var(--radius-md);
     padding: var(--space-md);
     box-shadow: var(--shadow-sm);
@@ -2682,7 +2689,7 @@ img {
 .commune__titre {
     font-size: var(--font-size-md);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-xs);
 }
  
@@ -2782,7 +2789,7 @@ img {
 .calcul__titre {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-sm);
 }
  
@@ -2792,7 +2799,7 @@ img {
 }
  
 .calcul__base {
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
     border-radius: var(--radius-lg);
     padding: var(--space-lg);
     margin-bottom: var(--space-lg);
@@ -2813,7 +2820,7 @@ img {
 .calcul__base-item dd {
     font-size: var(--font-size-lg);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
  
 .calcul__scenarios {
@@ -2823,7 +2830,7 @@ img {
 }
  
 .calcul__scenario {
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
     border-radius: var(--radius-lg);
     padding: var(--space-lg);
     border-top: 4px solid var(--color-jaune-fonce);
@@ -2832,7 +2839,7 @@ img {
 .calcul__scenario-titre {
     font-size: var(--font-size-md);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-md);
 }
  
@@ -2847,7 +2854,7 @@ img {
  
 .calcul__scenario-ligne--total {
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     border-bottom: none;
     padding-top: var(--space-sm);
 }
@@ -2865,7 +2872,7 @@ img {
 .calcul__scenario-roi strong {
     display: block;
     font-size: var(--font-size-lg);
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
  
 .calcul__scenario-detail {
@@ -2904,7 +2911,7 @@ img {
 
 .contact {
     padding: var(--space-2xl) var(--space-lg);
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
 }
 
 .contact__inner {
@@ -2925,7 +2932,7 @@ img {
 .contact__titre {
     font-size: clamp(1.5rem, 3vw, 1.75rem);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-xs);
 }
 
@@ -2957,7 +2964,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
 
 .contact__bloc-label {
@@ -2973,7 +2980,7 @@ img {
 .contact__telephone {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     text-decoration: none;
 }
 
@@ -2984,7 +2991,7 @@ img {
 .contact__lien {
     font-size: var(--font-size-base);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     text-decoration: none;
     border-bottom: 1.5px solid var(--color-jaune);
 }
@@ -3020,7 +3027,7 @@ img {
 }
 
 .contact__intro-lien a {
-    color: var(--color-noir);
+    color: var(--color-titre);
     font-weight: 700;
     text-decoration: none;
     border-bottom: 2px solid var(--color-jaune);
@@ -3058,14 +3065,14 @@ img {
 .form__label {
     font-size: var(--font-size-sm);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
 }
 
 .form__champ {
     font-family: var(--font-principal);
     font-size: var(--font-size-base);
     color: var(--color-texte);
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
     border: var(--border-thin) solid rgba(0, 0, 0, 0.15);
     border-radius: var(--radius-md);
     padding: var(--space-sm);
@@ -3111,7 +3118,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin: 0 auto var(--space-md);
 }
 /* ============================================
@@ -3126,7 +3133,7 @@ img {
 .simulateur__inner {
     max-width: 900px;
     margin: 0 auto;
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
     box-shadow: var(--shadow-sm);
@@ -3153,7 +3160,7 @@ img {
  
 .mentions {
     padding: var(--space-2xl) var(--space-lg);
-    background-color: var(--color-blanc);
+    background-color: var(--color-surface);
 }
  
 .mentions__inner {
@@ -3172,7 +3179,7 @@ img {
 .mentions__titre {
     font-size: var(--font-size-lg);
     font-weight: 700;
-    color: var(--color-noir);
+    color: var(--color-titre);
     margin-bottom: var(--space-sm);
 }
  
@@ -3188,7 +3195,7 @@ img {
 }
  
 .mentions__bloc a {
-    color: var(--color-noir);
+    color: var(--color-titre);
     text-decoration: underline;
     text-underline-offset: 2px;
 }
@@ -3200,5 +3207,132 @@ img {
 @media (max-width: 768px) {
     .mentions {
         padding: var(--space-xl) var(--space-sm);
+    }
+}
+/* ============================================
+   36. MODE SOMBRE
+   ============================================
+   Redéfinit uniquement les variables "contenu" (surfaces claires,
+   titres, textes, jaune de marque). --color-noir et --color-blanc
+   ne sont volontairement pas touchés : ils habillent le header, le
+   footer, le nav et les sections toujours sombres (hero, CTA final,
+   matériel, cœur de zone...), qui restent identiques dans les deux
+   thèmes.
+
+   Deux façons d'activer le thème sombre :
+   - [data-theme="dark"] : forcé par le bouton de bascule (JS, via localStorage)
+   - prefers-color-scheme : automatique si l'utilisateur n'a pas de
+     préférence manuelle enregistrée (voir scripts/nav.js)
+   ============================================ */
+
+[data-theme="dark"] {
+    --color-surface:     #1E1E1E;
+    --color-gris-clair:  #141414;
+    --color-texte:       #C9C9C9;
+    --color-titre:       #F5F5F5;
+    --color-jaune:       #F2CE3B;
+    --color-jaune-fonce: #D9AE33;
+
+    --color-border-soft:    rgba(255, 255, 255, 0.08);
+    --color-overlay-light:  rgba(255, 255, 255, 0.04);
+    --color-overlay-medium: rgba(255, 255, 255, 0.08);
+
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --color-surface:     #1E1E1E;
+        --color-gris-clair:  #141414;
+        --color-texte:       #C9C9C9;
+        --color-titre:       #F5F5F5;
+        --color-jaune:       #F2CE3B;
+        --color-jaune-fonce: #D9AE33;
+
+        --color-border-soft:    rgba(255, 255, 255, 0.08);
+        --color-overlay-light:  rgba(255, 255, 255, 0.04);
+        --color-overlay-medium: rgba(255, 255, 255, 0.08);
+
+        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.35);
+        --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+        --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55);
+    }
+}
+
+/* ============================================
+   37. BOUTON DE BASCULE MODE SOMBRE
+   ============================================
+   Toujours dans le header (fond --color-noir fixe), donc icône en
+   --color-blanc fixe dans les deux thèmes — seule l'icône affichée
+   (soleil/lune) change selon le thème effectif.
+   ============================================ */
+
+.nav__theme-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin-left: var(--space-sm);
+    background: none;
+    border: none;
+    color: var(--color-blanc);
+    cursor: pointer;
+    border-radius: var(--radius-full);
+    transition: background-color var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.nav__theme-toggle--auto::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-jaune);
+}
+
+.nav__theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav__theme-toggle-icone--lune {
+    display: block;
+}
+
+.nav__theme-toggle-icone--soleil {
+    display: none;
+}
+
+[data-theme="dark"] .nav__theme-toggle-icone--lune {
+    display: none;
+}
+
+[data-theme="dark"] .nav__theme-toggle-icone--soleil {
+    display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) .nav__theme-toggle-icone--lune {
+        display: none;
+    }
+
+    html:not([data-theme="light"]) .nav__theme-toggle-icone--soleil {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav__theme-toggle {
+        /* .nav__actions (qui portait le margin-left:auto) disparaît ici :
+           c'est ce bouton qui doit maintenant se pousser vers la droite,
+           juste avant le hamburger. */
+        margin: 0 var(--space-2xs) 0 auto;
     }
 }
