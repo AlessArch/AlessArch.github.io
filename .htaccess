@@ -52,6 +52,57 @@ RewriteRule ^politique-de-confidentialite/?$ /mentions-legales.html [L,R=301]
 
 # Simulation
 RewriteRule ^simulation/?$ /simulateur.html [L,R=301]
+# ============================================
+# Compression GZIP
+# ============================================
+# On ne compresse QUE le texte. Les woff2, webp, jpg et ico sont
+# déjà compressés : les repasser en gzip gaspille du CPU et peut
+# même alourdir le fichier de quelques octets.
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Indique aux proxies/CDN de servir la bonne version selon que le
+# navigateur accepte ou non le gzip.
+<IfModule mod_headers.c>
+    <FilesMatch "\.(html|css|js|svg|xml|json)$">
+        Header append Vary Accept-Encoding
+    </FilesMatch>
+</IfModule>
+
+# ============================================
+# Cache navigateur
+# ============================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+
+    # HTML : jamais mis en cache. Sinon une correction de contenu
+    # mettrait des jours à atteindre les visiteurs déjà venus.
+    ExpiresByType text/html "access plus 0 seconds"
+
+    # Polices : 1 an. Les noms de fichiers ne changeront jamais.
+    ExpiresByType font/woff2 "access plus 1 year"
+
+    # Images : 1 an. Un nouveau chantier = un nouveau nom de fichier,
+    # donc aucun risque de servir une image périmée.
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png  "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon  "access plus 1 year"
+
+    # CSS / JS : 1 mois seulement. Voir la note ci-dessous.
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
 
 # ============================================
 # Sécurité de base
