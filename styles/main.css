@@ -966,7 +966,7 @@ img {
 .avis-modal__date {
     font-size: var(--font-size-sm);
     color: var(--color-texte);
-    opacity: 0.6;
+    opacity: 0.75;
 }
 
 .avis__lire-plus {
@@ -2726,7 +2726,7 @@ img {
 .commune__lien {
     font-size: var(--font-size-sm);
     font-weight: 600;
-    color: var(--color-jaune-fonce);
+    color: var(--color-jaune-texte);
     text-decoration: none;
 }
  
@@ -3271,6 +3271,13 @@ img {
         --color-titre:       #F5F5F5;
         --color-jaune:       #F2CE3B;
         --color-jaune-fonce: #D9AE33;
+
+        /* Doit rester synchronisé avec le bloc [data-theme="dark"] ci-dessus.
+           Sans ces deux lignes, les visiteurs en mode sombre AUTOMATIQUE
+           (l'état par défaut de la bascule) gardent les variantes sombres
+           prévues pour fond clair : 3,3:1 au lieu de ~10:1. */
+        --color-jaune-texte: #F2CE3B;
+        --color-cbnl-texte:  #FF8B3D;
 
         --color-border-soft:    rgba(255, 255, 255, 0.08);
         --color-overlay-light:  rgba(255, 255, 255, 0.04);
