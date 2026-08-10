@@ -99,9 +99,11 @@ RewriteRule ^simulation/?$ /simulateur.html [L,R=301]
     ExpiresByType image/svg+xml "access plus 1 year"
     ExpiresByType image/x-icon  "access plus 1 year"
 
-    # CSS / JS : 1 mois seulement. Voir la note ci-dessous.
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
+    # CSS / JS : 1 an. Sans risque grâce au ?v=<hash> généré par build.py :
+    # toute modification du fichier change l'URL, donc le navigateur
+    # retélécharge automatiquement.
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
 </IfModule>
 
 # ============================================

@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
 """
 build.py — Propage partials/header.html et partials/footer.html
-dans toutes les pages HTML du site SWATT, et injecte/maintient le
-script anti-flash du mode sombre dans le <head> de chaque page.
+dans toutes les pages HTML du site SWATT, injecte/maintient le
+script anti-flash du mode sombre et le preload des polices dans
+le <head>, et versionne les assets CSS/JS pour le cache navigateur.
 
 Usage :
     python3 build.py
 
-À lancer à chaque fois que header.html, footer.html ou le script
-anti-flash (SCRIPT_THEME ci-dessous) est modifié, AVANT de commit/push.
-Les fichiers HTML à la racine sont mis à jour sur place.
+À lancer à chaque fois que header.html, footer.html, main.css,
+un script JS ou le script anti-flash est modifié, AVANT de
+commit/push. Les fichiers HTML à la racine sont mis à jour sur place.
 """
 
 import re
 import glob
 import os
+import hashlib
 
 RACINE = os.path.dirname(os.path.abspath(__file__))
 PARTIALS = os.path.join(RACINE, "partials")
@@ -45,6 +47,64 @@ SCRIPT_THEME = f"""{MARQUEUR_DEBUT_THEME}
     }})();
     </script>
     {MARQUEUR_FIN_THEME}"""
+
+# --- Preload des polices ---
+# Les @font-face sont déclarées dans main.css : sans preload, le navigateur
+# ne découvre les woff2 qu'après avoir téléchargé ET parsé la feuille de
+# style (3 requêtes en série). Le preload lance le téléchargement en
+# parallèle du CSS.
+# ATTENTION : l'attribut crossorigin est obligatoire même en same-origin.
+# Les polices sont toujours récupérées en mode CORS anonyme ; sans lui, le
+# navigateur télécharge le fichier deux fois.
+MARQUEUR_DEBUT_PRELOAD = "<!-- SWATT: preload polices -->"
+MARQUEUR_FIN_PRELOAD = "<!-- /SWATT: preload polices -->"
+
+PRELOAD_POLICES = f"""{MARQUEUR_DEBUT_PRELOAD}
+    <link rel="preload" href="/assets/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/inter-v20-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+    {MARQUEUR_FIN_PRELOAD}"""
+
+# Point d'ancrage du preload : juste avant la feuille de style.
+# On matche sans le guillemet fermant pour que l'ancre reste valide
+# même une fois l'URL versionnée (main.css?v=xxxxxxxx).
+ANCRE_CSS = '<link rel="stylesheet" href="/styles/main.css'
+
+# --- Versionnement des assets (cache-busting) ---
+# Empreinte du CONTENU, pas la date de modification : Git ne conserve pas
+# les mtime, donc chaque déploiement Hostinger casserait le cache pour rien.
+MOTIF_ASSET = re.compile(
+    r'(href|src)="(/styles/[^"?]+\.css|/scripts/[^"?]+\.js)(?:\?v=[^"]*)?"'
+)
+
+_cache_empreintes = {}
+
+
+def empreinte(chemin_url):
+    """Hash court du contenu d'un fichier local, à partir de son URL absolue."""
+    if chemin_url in _cache_empreintes:
+        return _cache_empreintes[chemin_url]
+    chemin_disque = os.path.join(RACINE, chemin_url.lstrip("/"))
+    try:
+        with open(chemin_disque, "rb") as f:
+            h = hashlib.md5(f.read()).hexdigest()[:8]
+    except FileNotFoundError:
+        print(f"  ⚠️  Asset introuvable, non versionné : {chemin_url}")
+        h = None
+    _cache_empreintes[chemin_url] = h
+    return h
+
+
+def versionner_assets(contenu):
+    """Ajoute ou met à jour ?v=<hash> sur les CSS et JS locaux."""
+    def remplacer(match):
+        attribut, chemin_url = match.group(1), match.group(2)
+        h = empreinte(chemin_url)
+        if h is None:
+            return f'{attribut}="{chemin_url}"'
+        return f'{attribut}="{chemin_url}?v={h}"'
+
+    contenu_maj, nb = MOTIF_ASSET.subn(remplacer, contenu)
+    return contenu_maj, nb > 0
 
 
 def header_pour_page(nom_fichier):
@@ -79,25 +139,21 @@ def remplacer_bloc(contenu, balise_ouvrante, balise_fermante, remplacement):
     return contenu[:debut] + remplacement + contenu[fin:], True
 
 
-def injecter_script_theme(contenu):
-    """Insère SCRIPT_THEME juste après <meta charset="UTF-8"> s'il est absent,
-    ou le remplace en place s'il est déjà présent (idempotent, comme pour le
-    header/footer)."""
-    if MARQUEUR_DEBUT_THEME in contenu:
-        contenu_maj, ok = remplacer_bloc(
-            contenu, MARQUEUR_DEBUT_THEME, MARQUEUR_FIN_THEME, SCRIPT_THEME
-        )
-        return contenu_maj, ok
+def injecter_bloc_head(contenu, marqueur_debut, marqueur_fin, bloc, ancre, avant=False):
+    """Insère un bloc dans le <head> s'il est absent, ou le remplace en
+    place s'il est déjà présent (idempotent).
+    `avant=True` insère avant l'ancre, sinon juste après."""
+    if marqueur_debut in contenu:
+        return remplacer_bloc(contenu, marqueur_debut, marqueur_fin, bloc)
 
-    ancre = '<meta charset="UTF-8">'
     pos = contenu.find(ancre)
     if pos == -1:
         return contenu, False
+
+    if avant:
+        return contenu[:pos] + bloc + "\n    " + contenu[pos:], True
     pos_insertion = pos + len(ancre)
-    contenu_maj = (
-        contenu[:pos_insertion] + "\n    " + SCRIPT_THEME + contenu[pos_insertion:]
-    )
-    return contenu_maj, True
+    return contenu[:pos_insertion] + "\n    " + bloc + contenu[pos_insertion:], True
 
 
 def traiter_fichier(chemin):
@@ -113,7 +169,15 @@ def traiter_fichier(chemin):
     contenu, ok_footer = remplacer_bloc(
         contenu, '<footer class="footer">', '</footer>', FOOTER_SRC
     )
-    contenu, ok_theme = injecter_script_theme(contenu)
+    contenu, ok_theme = injecter_bloc_head(
+        contenu, MARQUEUR_DEBUT_THEME, MARQUEUR_FIN_THEME,
+        SCRIPT_THEME, '<meta charset="UTF-8">'
+    )
+    contenu, ok_preload = injecter_bloc_head(
+        contenu, MARQUEUR_DEBUT_PRELOAD, MARQUEUR_FIN_PRELOAD,
+        PRELOAD_POLICES, ANCRE_CSS, avant=True
+    )
+    contenu, ok_version = versionner_assets(contenu)
 
     if not ok_header:
         print(f"  ⚠️  {nom_fichier} : aucun <header class=\"header\"> trouvé, ignoré")
@@ -121,8 +185,10 @@ def traiter_fichier(chemin):
         print(f"  ⚠️  {nom_fichier} : aucun <footer class=\"footer\"> trouvé, ignoré")
     if not ok_theme:
         print(f"  ⚠️  {nom_fichier} : <meta charset=\"UTF-8\"> introuvable, script thème non injecté")
+    if not ok_preload:
+        print(f"  ⚠️  {nom_fichier} : lien vers main.css introuvable, preload non injecté")
 
-    if ok_header or ok_footer or ok_theme:
+    if ok_header or ok_footer or ok_theme or ok_preload or ok_version:
         with open(chemin, "w", encoding="utf-8") as f:
             f.write(contenu)
         print(f"  ✓ {nom_fichier}")
