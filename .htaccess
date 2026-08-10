@@ -14,50 +14,80 @@ RewriteCond %{HTTP_HOST} ^swatt-landes\.fr [NC]
 RewriteRule ^(.*)$ https://www.swatt-landes.fr/$1 [L,R=301]
 
 # ============================================
+# Icônes demandées à la racine par défaut
+# ============================================
+# Les navigateurs et Googlebot-Image demandent /favicon.ico à la racine sans
+# lire le <link rel="icon"> du HTML. Réécriture interne (pas de redirection) :
+# le fichier reste unique dans /assets/, pas de doublon à maintenir.
+RewriteRule ^favicon\.ico$ /assets/logo.ico [L]
+
+# Variante historique iOS, pointée vers la même icône.
+RewriteRule ^apple-touch-icon-precomposed\.png$ /apple-touch-icon.png [L]
+
+# ============================================
 # Redirections 301 — anciennes URLs WordPress
 # (remplace les anciens stubs meta-refresh)
 # ============================================
 
-# Équipe
+# --- Pages principales ---
 RewriteRule ^lequipe-swatt/?$ /equipe.html [L,R=301]
-
-# Prestations
 RewriteRule ^nos-prestations/?$ /panneaux-solaires.html [L,R=301]
 RewriteRule ^panneaux-solaires/?$ /panneaux-solaires.html [L,R=301]
-
-# Anciens chantiers individuels -> page réalisations
-RewriteRule ^panneaux-solaires/chantiers/?$ /realisations.html [L,R=301]
-RewriteRule ^panneaux-solaires/chantiers/comment-faire-poser-des-panneaux-solaires-a-parentis-en-born/?$ /realisations.html [L,R=301]
-RewriteRule ^panneaux-solaires/chantiers/installation-de-6-kw-a-parentis-en-born/?$ /realisations.html [L,R=301]
-RewriteRule ^panneaux-solaires/chantiers/installation-dune-centrale-de-36kw-a-parentis-en-born/?$ /realisations.html [L,R=301]
-RewriteRule ^panneaux-solaires/chantiers/pose-dune-centrale-solaire-de-6kw-sur-le-bassin-darcachon/?$ /realisations.html [L,R=301]
-RewriteRule ^panneaux-solaires/chantiers/creation-support-et-pose-des-panneaux-solaire-a-laerodrome-de-biscarrosse/?$ /realisations.html [L,R=301]
-RewriteRule ^panneaux-solaires/chantiers/pose-de-panneaux-solaires-a-biscarrosse-une-solution-durable-pour-votre-maison/?$ /realisations.html [L,R=301]
-RewriteRule ^panneaux-solaires/chantiers-2/chantier-a-pessac-en-girondeinstallation-de-6-kw/?$ /realisations.html [L,R=301]
-
-# Climatisation
 RewriteRule ^climatisation/?$ /climatisation.html [L,R=301]
-
-# Contact
-RewriteRule ^contact/?$ /contact.html [L,R=301]
-
-# FAQ
-RewriteRule ^faq/?$ /faq.html [L,R=301]
-
-# Chauffe-eau thermodynamique
 RewriteRule ^chauffe-eau-thermodynamique/?$ /thermodynamique.html [L,R=301]
-
-# Politique de confidentialité -> mentions légales
+RewriteRule ^contact/?$ /contact.html [L,R=301]
+RewriteRule ^faq/?$ /faq.html [L,R=301]
+RewriteRule ^simulation/?$ /simulateur.html [L,R=301]
+RewriteRule ^mentions-legales/?$ /mentions-legales.html [L,R=301]
 RewriteRule ^politique-de-confidentialite/?$ /mentions-legales.html [L,R=301]
 
-# Simulation
-RewriteRule ^simulation/?$ /simulateur.html [L,R=301]
+# L'accueil WordPress avait aussi une URL propre, en plus de la racine.
+RewriteRule ^page-daccueil-swatt-energie/?$ / [L,R=301]
+
+# Ancien flux RSS WordPress.
+RewriteRule ^feed/?$ / [L,R=301]
+
+# --- Fiches chantiers -> page réalisations ---
+# Deux répertoires parents coexistaient sous WordPress. Ces deux règles
+# génériques attrapent les fiches ET tout slug qu'on n'aurait pas recensé.
+RewriteRule ^chantiers(/.*)?$ /realisations.html [L,R=301]
+RewriteRule ^panneaux-solaires/chantiers(-2)?(/.*)?$ /realisations.html [L,R=301]
+
+# Filet de sécurité, slugs relevés dans la base WordPress. La syntaxe (^|/)
+# fait correspondre le slug quelle que soit sa profondeur : /slug/ aussi bien
+# que /chantiers/slug/ ou /panneaux-solaires/chantiers/slug/. Utile parce que
+# le chemin parent de certaines fiches reste inconnu.
+RewriteRule (^|/)comment-faire-poser-des-panneaux-solaires-a-parentis-en-born/?$ /realisations.html [L,R=301]
+RewriteRule (^|/)creation-support-et-pose-des-panneaux-solaire-a-laerodrome-de-biscarrosse/?$ /realisations.html [L,R=301]
+RewriteRule (^|/)pose-dune-centrale-solaire-de-6kw-sur-le-bassin-darcachon/?$ /realisations.html [L,R=301]
+RewriteRule (^|/)installation-de-panneaux-solaires-a-sanguinet/?$ /realisations.html [L,R=301]
+RewriteRule (^|/)pose-de-panneaux-solaires-a-biscarrosse-une-solution-durable-pour-votre-maison/?$ /realisations.html [L,R=301]
+RewriteRule (^|/)projets-solaires-a-ychoux-des-installations-sur-mesure/?$ /realisations.html [L,R=301]
+RewriteRule (^|/)installation-dune-centrale-de-36kw-a-parentis-en-born/?$ /realisations.html [L,R=301]
+RewriteRule (^|/)pose-dun-kit-de-3kw-a-biscarrosse-dans-les-landes/?$ /realisations.html [L,R=301]
+RewriteRule (^|/)projets-solaires-a-soorts-hossegor-des-installations-sur-mesure/?$ /realisations.html [L,R=301]
+RewriteRule (^|/)chantier-a-pessac-en-girondeinstallation-de-6-kw/?$ /realisations.html [L,R=301]
+RewriteRule (^|/)chantier-a-parentis-en-born-dans-les-landes-installation-de-3-kw/?$ /realisations.html [L,R=301]
+RewriteRule (^|/)installation-de-6-kw-a-parentis-en-born/?$ /realisations.html [L,R=301]
+RewriteRule (^|/)installation-de-panneaux-solaires-4-kw-a-biscarrosse/?$ /realisations.html [L,R=301]
+RewriteRule (^|/)centrale-de-40-kw-a-pontenx-les-forges/?$ /realisations.html [L,R=301]
+RewriteRule (^|/)test-nos-chantier/?$ /realisations.html [L,R=301]
+
+# ============================================
+# Sondages automatisés (WordPress, Joomla, Shopify)
+# ============================================
+# Aucun de ces systèmes n'existe ici. Le 410 "Gone" indique à Google que
+# c'est définitivement supprimé, ce qu'il traite plus vite qu'un 404.
+# Ces deux lignes sont facultatives : tu peux les retirer sans impact.
+RewriteRule ^(wp-admin|wp-includes|wp-content|wp-login\.php|xmlrpc\.php) - [G,L]
+RewriteRule ^(media/system|products\.json) - [G,L]
+
 # ============================================
 # Compression GZIP
 # ============================================
-# On ne compresse QUE le texte. Les woff2, webp, jpg et ico sont
-# déjà compressés : les repasser en gzip gaspille du CPU et peut
-# même alourdir le fichier de quelques octets.
+# On ne compresse QUE le texte. Les woff2, webp, jpg et ico sont déjà
+# compressés : les repasser en gzip gaspille du CPU et peut même alourdir
+# le fichier de quelques octets.
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html
     AddOutputFilterByType DEFLATE text/css
@@ -69,7 +99,7 @@ RewriteRule ^simulation/?$ /simulateur.html [L,R=301]
     AddOutputFilterByType DEFLATE image/svg+xml
 </IfModule>
 
-# Indique aux proxies/CDN de servir la bonne version selon que le
+# Indique aux proxies et CDN de servir la bonne version selon que le
 # navigateur accepte ou non le gzip.
 <IfModule mod_headers.c>
     <FilesMatch "\.(html|css|js|svg|xml|json)$">
@@ -84,11 +114,11 @@ RewriteRule ^simulation/?$ /simulateur.html [L,R=301]
     ExpiresActive On
     ExpiresDefault "access plus 1 month"
 
-    # HTML : jamais mis en cache. Sinon une correction de contenu
-    # mettrait des jours à atteindre les visiteurs déjà venus.
+    # HTML : jamais mis en cache. Sinon une correction de contenu mettrait
+    # des jours à atteindre les visiteurs déjà venus.
     ExpiresByType text/html "access plus 0 seconds"
 
-    # Polices : 1 an. Les noms de fichiers ne changeront jamais.
+    # Polices : 1 an, les noms de fichiers ne changeront jamais.
     ExpiresByType font/woff2 "access plus 1 year"
 
     # Images : 1 an. Un nouveau chantier = un nouveau nom de fichier,

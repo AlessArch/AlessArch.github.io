@@ -11,6 +11,14 @@
     --color-texte:       #2C2C2C;
     --color-cbnl:        #F7630C;
 
+    /* Variantes TEXTE sur fond clair.
+       Le jaune de marque tombe à 1,6:1 sur blanc et l'orange CBNL à 2,9:1,
+       très loin des 4,5:1 exigés par le WCAG. Ces deux versions assombries
+       sont réservées au texte posé sur fond clair — les fonds, bordures et
+       le texte sur les sections noires gardent les couleurs vives. */
+    --color-jaune-texte: #836D05;   /* 5,05:1 sur blanc — 4,64:1 sur gris clair */
+    --color-cbnl-texte:  #BE4A06;   /* 5,03:1 sur blanc — 4,62:1 sur gris clair */
+
     /* Couleurs sémantiques — changent selon le thème (voir mode sombre plus bas).
        --color-noir et --color-blanc restent fixes : ils habillent le header/footer/nav
        et les sections toujours sombres du site (hero, CTA final, matériel...), qui ne
@@ -642,7 +650,7 @@ img {
 }
 
 .presentation__cbnl a {
-    color: var(--color-cbnl);
+    color: var(--color-cbnl-texte);
     text-decoration: none;
     font-weight: 700;
 }
@@ -799,7 +807,7 @@ img {
 .carte-prestation__cta {
     font-size: var(--font-size-sm);
     font-weight: 700;
-    color: var(--color-jaune-fonce);
+    color: var(--color-jaune-texte);
     margin-top: var(--space-xs);
 }
 
@@ -967,7 +975,9 @@ img {
     border: none;
     padding: 0;
     color: var(--color-texte);
-    opacity: 0.55;
+    /* Idem : 0.55 donnait 3,34:1. Ce bouton est un élément interactif,
+       le contraste y est d'autant plus important. */
+    opacity: 0.75;
     font-size: var(--font-size-sm);
     font-weight: 700;
     text-decoration: underline;
@@ -1010,7 +1020,10 @@ img {
 .avis__date {
     font-size: var(--font-size-sm);
     color: var(--color-texte);
-    opacity: 0.6;
+    /* 0.6 donnait un gris effectif #7C7C7C = 3,83:1, sous les 4,5:1 du WCAG.
+       0.75 monte à 5,95:1 en clair et ~6,7:1 en sombre, tout en gardant
+       l'effet "atténué" recherché. */
+    opacity: 0.75;
 }
 
 .avis__carousel {
@@ -1112,7 +1125,10 @@ img {
 .avis__date {
     font-size: var(--font-size-sm);
     color: var(--color-texte);
-    opacity: 0.6;
+    /* 0.6 donnait un gris effectif #7C7C7C = 3,83:1, sous les 4,5:1 du WCAG.
+       0.75 monte à 5,95:1 en clair et ~6,7:1 en sombre, tout en gardant
+       l'effet "atténué" recherché. */
+    opacity: 0.75;
 }
 /* ============================================
    12. RÉASSURANCE
@@ -1353,7 +1369,7 @@ img {
 .faq__icone {
     flex-shrink: 0;
     transition: transform var(--transition-base);
-    color: var(--color-jaune-fonce);
+    color: var(--color-jaune-texte);
 }
 
 .faq__item[open] .faq__icone {
@@ -1631,7 +1647,7 @@ img {
 .membre__role {
     font-size: var(--font-size-sm);
     font-weight: 700;
-    color: var(--color-jaune-fonce);
+    color: var(--color-jaune-texte);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
@@ -2329,7 +2345,7 @@ img {
     content: "✓";
     position: absolute;
     left: 0;
-    color: var(--color-jaune-fonce);
+    color: var(--color-jaune-texte);
     font-weight: 700;
 }
 
@@ -2985,7 +3001,7 @@ img {
 }
 
 .contact__telephone:hover {
-    color: var(--color-jaune-fonce);
+    color: var(--color-jaune-texte);
 }
 
 .contact__lien {
@@ -3201,7 +3217,7 @@ img {
 }
  
 .mentions__bloc a:hover {
-    color: var(--color-jaune-fonce);
+    color: var(--color-jaune-texte);
 }
  
 @media (max-width: 768px) {
@@ -3232,6 +3248,11 @@ img {
     --color-titre:       #F5F5F5;
     --color-jaune:       #F2CE3B;
     --color-jaune-fonce: #D9AE33;
+
+    /* Sur fond sombre, l'inverse : ce sont les couleurs vives qui contrastent.
+       #F2CE3B donne 10,9:1 et #FF8B3D 7,2:1 sur le fond #1E1E1E. */
+    --color-jaune-texte: #F2CE3B;
+    --color-cbnl-texte:  #FF8B3D;
 
     --color-border-soft:    rgba(255, 255, 255, 0.08);
     --color-overlay-light:  rgba(255, 255, 255, 0.04);
